@@ -10,18 +10,21 @@ import UIKit
 class MainScreenView: UIView {
     
     // MARK: - Property
+    
+    var data = Model.data
+    
     private lazy var titleLarge: UILabel = {
         var titleLarge = UILabel()
         titleLarge.font = .systemFont(ofSize: 25, weight: .bold)
         titleLarge.textAlignment = .center
         titleLarge.textColor = .black
         titleLarge.numberOfLines = 0
-        titleLarge.text = "Выбери подписку и попробуй 7 дней без оплаты"
+        titleLarge.text = data.titleLarge
         titleLarge.translatesAutoresizingMaskIntoConstraints = false
         return titleLarge
     }()
     
-    private lazy var titleInCard: UILabel = {
+    private lazy var titleInCardLeft: UILabel = {
         var titleInCard = UILabel()
         titleInCard.font = .systemFont(ofSize: 20, weight: .medium)
         titleInCard.textAlignment = .center
@@ -31,7 +34,17 @@ class MainScreenView: UIView {
         return titleInCard
     }()
     
-    private lazy var textAboutCost: UILabel = {
+    private lazy var titleInCardRight: UILabel = {
+        var titleInCard = UILabel()
+        titleInCard.font = .systemFont(ofSize: 20, weight: .medium)
+        titleInCard.textAlignment = .center
+        titleInCard.textColor = .white
+        titleInCard.text = "6 месяцев"
+        titleInCard.translatesAutoresizingMaskIntoConstraints = false
+        return titleInCard
+    }()
+    
+    private lazy var textAboutCostLeft: UILabel = {
         var textAboutCost = UILabel()
         textAboutCost.font = .systemFont(ofSize: 20, weight: .medium)
         textAboutCost.textColor = .black
@@ -42,13 +55,35 @@ class MainScreenView: UIView {
         return textAboutCost
     }()
     
-    private lazy var textAboutRate: UILabel = {
+    private lazy var textAboutCostRight: UILabel = {
+        var textAboutCost = UILabel()
+        textAboutCost.font = .systemFont(ofSize: 20, weight: .medium)
+        textAboutCost.textColor = .white
+        textAboutCost.lineBreakMode = .byCharWrapping
+        textAboutCost.numberOfLines = 0
+        textAboutCost.text = "1050 руб. в месяц"
+        textAboutCost.translatesAutoresizingMaskIntoConstraints = false
+        return textAboutCost
+    }()
+    
+    private lazy var textAboutRateLeft: UILabel = {
         var textAboutRate = UILabel()
         textAboutRate.font = .systemFont(ofSize: 20, weight: .light)
         textAboutRate.textColor = .gray
         textAboutRate.text = "Ежемесячная оплата, первые 7 дней без оплаты"
+        textAboutRate.addInterlineSpacing()
         textAboutRate.numberOfLines = 0
-        
+        textAboutRate.translatesAutoresizingMaskIntoConstraints = false
+        return textAboutRate
+    }()
+    
+    private lazy var textAboutRateRight: UILabel = {
+        var textAboutRate = UILabel()
+        textAboutRate.font = .systemFont(ofSize: 20, weight: .light)
+        textAboutRate.textColor = .systemGray4
+        textAboutRate.text = "Ежемесячная оплата, первые 7 дней без оплаты"
+        textAboutRate.addInterlineSpacing()
+        textAboutRate.numberOfLines = 0
         textAboutRate.translatesAutoresizingMaskIntoConstraints = false
         return textAboutRate
     }()
@@ -69,7 +104,15 @@ class MainScreenView: UIView {
         return viewCard
     }()
     
-    private lazy var iconContainer: UIView = {
+    private lazy var iconContainerLeft: UIView = {
+        var viewCard = UIView()
+        viewCard.backgroundColor = .white
+        viewCard.layer.cornerRadius = 15
+        viewCard.translatesAutoresizingMaskIntoConstraints = false
+        return viewCard
+    }()
+    
+    private lazy var iconContainerRight: UIView = {
         var viewCard = UIView()
         viewCard.backgroundColor = .white
         viewCard.layer.cornerRadius = 15
@@ -80,7 +123,6 @@ class MainScreenView: UIView {
     private lazy var icon: UIImageView = {
         var icon = UIImageView()
         icon.image = .checkmark
-        
         icon.translatesAutoresizingMaskIntoConstraints = false
         return icon
     }()
@@ -112,7 +154,6 @@ class MainScreenView: UIView {
         textAboutSubscription.textColor = .black
         textAboutSubscription.text = "Восстановить подписку или Войти"
         textAboutSubscription.textAlignment = .center
-        
         textAboutSubscription.translatesAutoresizingMaskIntoConstraints = false
         return textAboutSubscription
     }()
@@ -135,11 +176,16 @@ class MainScreenView: UIView {
         addSubview(titleLarge)
         addSubview(viewCardLeft)
         addSubview(viewCardRight)
-        viewCardLeft.addSubview(titleInCard)
-        viewCardLeft.addSubview(textAboutCost)
-        viewCardLeft.addSubview(textAboutRate)
-        viewCardLeft.addSubview(iconContainer)
-        //iconContainer.addSubview(icon)
+        viewCardLeft.addSubview(titleInCardLeft)
+        viewCardLeft.addSubview(textAboutCostLeft)
+        viewCardLeft.addSubview(textAboutRateLeft)
+        viewCardLeft.addSubview(iconContainerLeft)
+        
+        viewCardRight.addSubview(titleInCardRight)
+        viewCardRight.addSubview(textAboutCostRight)
+        viewCardRight.addSubview(textAboutRateRight)
+        viewCardRight.addSubview(iconContainerRight)
+        
         addSubview(buttonProceed)
         addSubview(textCommentAboutSubscription)
         addSubview(textAboutSubscription)
@@ -169,21 +215,37 @@ class MainScreenView: UIView {
             buttonProceed.heightAnchor.constraint(equalToConstant: 55),
             buttonProceed.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1 / 1.1),
 
-            titleInCard.centerXAnchor.constraint(equalTo: viewCardLeft.centerXAnchor),
-            titleInCard.topAnchor.constraint(equalTo: viewCardLeft.topAnchor, constant: 25),
+            titleInCardLeft.centerXAnchor.constraint(equalTo: viewCardLeft.centerXAnchor),
+            titleInCardLeft.topAnchor.constraint(equalTo: viewCardLeft.topAnchor, constant: 25),
             
-            textAboutCost.leadingAnchor.constraint(equalTo: viewCardLeft.leadingAnchor, constant: 15),
-            textAboutCost.topAnchor.constraint(equalTo: titleInCard.bottomAnchor, constant: 15),
-            textAboutCost.trailingAnchor.constraint(equalTo: viewCardLeft.trailingAnchor, constant: -55),
+            titleInCardRight.centerXAnchor.constraint(equalTo: viewCardRight.centerXAnchor),
+            titleInCardRight.topAnchor.constraint(equalTo: viewCardRight.topAnchor, constant: 25),
             
-            textAboutRate.leadingAnchor.constraint(equalTo: viewCardLeft.leadingAnchor, constant: 15),
-            textAboutRate.topAnchor.constraint(equalTo: textAboutCost.bottomAnchor, constant: 15),
-            textAboutRate.trailingAnchor.constraint(equalTo: viewCardLeft.trailingAnchor, constant: -15),
+            textAboutCostLeft.leadingAnchor.constraint(equalTo: viewCardLeft.leadingAnchor, constant: 15),
+            textAboutCostLeft.topAnchor.constraint(equalTo: titleInCardLeft.bottomAnchor, constant: 15),
+            textAboutCostLeft.trailingAnchor.constraint(equalTo: viewCardLeft.trailingAnchor, constant: -55),
             
-            iconContainer.leadingAnchor.constraint(equalTo: viewCardLeft.leadingAnchor, constant: 15),
-            iconContainer.topAnchor.constraint(equalTo: textAboutRate.bottomAnchor, constant: 20),
-            iconContainer.heightAnchor.constraint(equalToConstant: 30),
-            iconContainer.widthAnchor.constraint(equalToConstant: 30),
+            textAboutCostRight.leadingAnchor.constraint(equalTo: viewCardRight.leadingAnchor, constant: 15),
+            textAboutCostRight.topAnchor.constraint(equalTo: titleInCardRight.bottomAnchor, constant: 15),
+            textAboutCostRight.trailingAnchor.constraint(equalTo: viewCardRight.trailingAnchor, constant: -55),
+            
+            textAboutRateLeft.leadingAnchor.constraint(equalTo: viewCardLeft.leadingAnchor, constant: 15),
+            textAboutRateLeft.topAnchor.constraint(equalTo: textAboutCostLeft.bottomAnchor, constant: 15),
+            textAboutRateLeft.trailingAnchor.constraint(equalTo: viewCardLeft.trailingAnchor, constant: -15),
+            
+            textAboutRateRight.leadingAnchor.constraint(equalTo: viewCardRight.leadingAnchor, constant: 15),
+            textAboutRateRight.topAnchor.constraint(equalTo: textAboutCostRight.bottomAnchor, constant: 15),
+            textAboutRateRight.trailingAnchor.constraint(equalTo: viewCardRight.trailingAnchor, constant: -15),
+            
+            iconContainerLeft.leadingAnchor.constraint(equalTo: viewCardLeft.leadingAnchor, constant: 15),
+            iconContainerLeft.topAnchor.constraint(equalTo: textAboutRateLeft.bottomAnchor, constant: 20),
+            iconContainerLeft.heightAnchor.constraint(equalToConstant: 30),
+            iconContainerLeft.widthAnchor.constraint(equalToConstant: 30),
+            
+            iconContainerRight.leadingAnchor.constraint(equalTo: viewCardRight.leadingAnchor, constant: 15),
+            iconContainerRight.topAnchor.constraint(equalTo: textAboutRateRight.bottomAnchor, constant: 20),
+            iconContainerRight.heightAnchor.constraint(equalToConstant: 30),
+            iconContainerRight.widthAnchor.constraint(equalToConstant: 30),
             
 //            icon.centerXAnchor.constraint(equalTo: iconContainer.centerXAnchor),
 //            icon.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
@@ -195,11 +257,35 @@ class MainScreenView: UIView {
             
             textAboutSubscription.centerXAnchor.constraint(equalTo: centerXAnchor),
             textAboutSubscription.topAnchor.constraint(equalTo: buttonProceed.bottomAnchor, constant: 70)
-        
         ])
-        
     }
-    
-    
-    
+}
+
+private extension UILabel {
+
+    // MARK: - spacingValue is spacing that you need
+    func addInterlineSpacing(spacingValue: CGFloat = 2) {
+
+        // MARK: - Check if there's any text
+        guard let textString = text else { return }
+
+        // MARK: - Create "NSMutableAttributedString" with your text
+        let attributedString = NSMutableAttributedString(string: textString)
+
+        // MARK: - Create instance of "NSMutableParagraphStyle"
+        let paragraphStyle = NSMutableParagraphStyle()
+
+        // MARK: - Actually adding spacing we need to ParagraphStyle
+        paragraphStyle.lineSpacing = spacingValue
+
+        // MARK: - Adding ParagraphStyle to your attributed String
+        attributedString.addAttribute(
+            .paragraphStyle,
+            value: paragraphStyle,
+            range: NSRange(location: 0, length: attributedString.length
+        ))
+
+        // MARK: - Assign string that you've modified to current attributed Text
+        attributedText = attributedString
+    }
 }
