@@ -9,18 +9,16 @@ import UIKit
 
 class ScreenRegistrationViewController: UIViewController {
     
-//    private var mainScreenView: MainScreenView? {
-//        guard isViewLoaded else { return nil }
-//        return view as? MainScreenView
-//    }
+    private var screenRegistrationView: ScreenRegistrationView? {
+        guard isViewLoaded else { return nil }
+        return view as? ScreenRegistrationView
+    }
 
    var coordinator: ScreenRegistrationCoordinator?
     
     override func viewDidLoad() {
-      super.viewDidLoad()
-        view.backgroundColor = .red
-
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        self.view = ScreenRegistrationView()
     }
-
-
 }
