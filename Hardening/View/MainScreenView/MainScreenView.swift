@@ -12,7 +12,7 @@ class MainScreenView: UIView {
     // MARK: - Property
     
     var data = Model.data
-    
+   
     private lazy var titleLarge: UILabel = {
         var titleLarge = UILabel()
         titleLarge.font = .systemFont(ofSize: 25, weight: .bold)
@@ -24,115 +24,25 @@ class MainScreenView: UIView {
         return titleLarge
     }()
     
-    private lazy var titleInCardLeft: UILabel = {
-        var titleInCard = UILabel()
-        titleInCard.font = .systemFont(ofSize: 20, weight: .medium)
-        titleInCard.textAlignment = .center
-        titleInCard.textColor = .black
-        titleInCard.text = "1 месяц"
-        titleInCard.translatesAutoresizingMaskIntoConstraints = false
-        return titleInCard
-    }()
-    
-    private lazy var titleInCardRight: UILabel = {
-        var titleInCard = UILabel()
-        titleInCard.font = .systemFont(ofSize: 20, weight: .medium)
-        titleInCard.textAlignment = .center
-        titleInCard.textColor = .white
-        titleInCard.text = "6 месяцев"
-        titleInCard.translatesAutoresizingMaskIntoConstraints = false
-        return titleInCard
-    }()
-    
-    private lazy var textAboutCostLeft: UILabel = {
-        var textAboutCost = UILabel()
-        textAboutCost.font = .systemFont(ofSize: 20, weight: .medium)
-        textAboutCost.textColor = .black
-        textAboutCost.lineBreakMode = .byCharWrapping
-        textAboutCost.numberOfLines = 0
-        textAboutCost.text = "379 руб. в месяц"
-        textAboutCost.translatesAutoresizingMaskIntoConstraints = false
-        return textAboutCost
-    }()
-    
-    private lazy var textAboutCostRight: UILabel = {
-        var textAboutCost = UILabel()
-        textAboutCost.font = .systemFont(ofSize: 20, weight: .medium)
-        textAboutCost.textColor = .white
-        textAboutCost.lineBreakMode = .byCharWrapping
-        textAboutCost.numberOfLines = 0
-        textAboutCost.text = "1050 руб. в месяц"
-        textAboutCost.translatesAutoresizingMaskIntoConstraints = false
-        return textAboutCost
-    }()
-    
-    private lazy var textAboutRateLeft: UILabel = {
-        var textAboutRate = UILabel()
-        textAboutRate.font = .systemFont(ofSize: 20, weight: .light)
-        textAboutRate.textColor = .gray
-        textAboutRate.text = "Ежемесячная оплата, первые 7 дней без оплаты"
-        textAboutRate.addInterlineSpacing()
-        textAboutRate.numberOfLines = 0
-        textAboutRate.translatesAutoresizingMaskIntoConstraints = false
-        return textAboutRate
-    }()
-    
-    private lazy var textAboutRateRight: UILabel = {
-        var textAboutRate = UILabel()
-        textAboutRate.font = .systemFont(ofSize: 20, weight: .light)
-        textAboutRate.textColor = .systemGray4
-        textAboutRate.text = "Ежемесячная оплата, первые 7 дней без оплаты"
-        textAboutRate.addInterlineSpacing()
-        textAboutRate.numberOfLines = 0
-        textAboutRate.translatesAutoresizingMaskIntoConstraints = false
-        return textAboutRate
-    }()
-    
-    private lazy var viewCardLeft: UIView = {
-        var viewCard = UIView()
-        viewCard.backgroundColor = .lightGray.withAlphaComponent(0.5)
-        viewCard.layer.cornerRadius = 5
-        viewCard.translatesAutoresizingMaskIntoConstraints = false
-        return viewCard
-    }()
-    
-    private lazy var viewCardRight: UIView = {
-        var viewCard = UIView()
-        viewCard.backgroundColor = .blue
-        viewCard.layer.cornerRadius = 5
-        viewCard.translatesAutoresizingMaskIntoConstraints = false
-        return viewCard
-    }()
-    
-    private lazy var iconContainerLeft: UIView = {
-        var viewCard = UIView()
-        viewCard.backgroundColor = .white
-        viewCard.layer.cornerRadius = 15
-        viewCard.translatesAutoresizingMaskIntoConstraints = false
-        return viewCard
-    }()
-    
-    private lazy var iconContainerRight: UIView = {
-        var viewCard = UIView()
-        viewCard.backgroundColor = .white
-        viewCard.layer.cornerRadius = 15
-        viewCard.translatesAutoresizingMaskIntoConstraints = false
-        return viewCard
-    }()
-    
-    private lazy var icon: UIImageView = {
-        var icon = UIImageView()
-        icon.image = .checkmark
-        icon.translatesAutoresizingMaskIntoConstraints = false
-        return icon
-    }()
-    
+    private lazy var titleInCardLeft = configureTitleInCard(text: "1 месяц", textColor: .black)
+    private lazy var titleInCardRight = configureTitleInCard(text: "6 месяцев", textColor: .white)
+    private lazy var textAboutCostLeft = configureTextAboutCost(text: "379 руб. в месяц", textColor: .black)
+    private lazy var textAboutCostRight = configureTextAboutCost(text: "1050 руб. в месяц", textColor: .white)
+    private lazy var textAboutRateLeft = configureTextAboutRate(text: "Ежемесячная оплата, первые 7 дней без оплаты", textColor: .gray)
+    private lazy var textAboutRateRight = configureTextAboutRate(text: "Ежемесячная оплата, первые 7 дней без оплаты", textColor: .systemGray4)
+    private lazy var viewCardLeft = configureViewCard(color: .lightGray.withAlphaComponent(0.5))
+    private lazy var viewCardRight = configureViewCard(color: .blue)
+    private lazy var checkBoxLeft = configureButton()
+    private lazy var checkBoxRight = configureButton()
+    private lazy var isChoiceCheckBox = false
+  
     private lazy var buttonProceed: UIButton = {
-        var buttonProceed = UIButton()
+        var buttonProceed = UIButton(type: .system)
         buttonProceed.setTitle("Продолжить", for: .normal)
         buttonProceed.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
         buttonProceed.setTitleColor(.white, for: .normal)
         buttonProceed.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/150.0, blue: 255.0/255.0, alpha: 1.0)
+       // buttonProceed.addTarget(self, action: #selector(tapButtonRegistration), for: .touchUpInside)
         buttonProceed.layer.cornerRadius = 18
         buttonProceed.translatesAutoresizingMaskIntoConstraints = false
         return buttonProceed
@@ -148,17 +58,28 @@ class MainScreenView: UIView {
         return textCommentAboutSubscription
     }()
     
+    private lazy var stackViewButton: UIStackView = {
+        var stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+  lazy var buttonRegistration = configureButtonsRegistrationOrLogin(text: "Зарегистрироваться")
+    private lazy var buttonLogIn = configureButtonsRegistrationOrLogin(text: "Войти")
+    
     private lazy var textAboutSubscription: UILabel = {
         var textAboutSubscription = UILabel()
         textAboutSubscription.font = .systemFont(ofSize: 20, weight: .light)
         textAboutSubscription.textColor = .black
-        textAboutSubscription.text = "Восстановить подписку или Войти"
-        textAboutSubscription.textAlignment = .center
+        textAboutSubscription.text = "или"
         textAboutSubscription.translatesAutoresizingMaskIntoConstraints = false
         return textAboutSubscription
     }()
     
     // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupHierarchy()
@@ -167,11 +88,10 @@ class MainScreenView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupHierarchy()
-        setupLayout()
     }
     
     // MARK: - Hierarchy
+    
     private func setupHierarchy() {
         addSubview(titleLarge)
         addSubview(viewCardLeft)
@@ -179,19 +99,23 @@ class MainScreenView: UIView {
         viewCardLeft.addSubview(titleInCardLeft)
         viewCardLeft.addSubview(textAboutCostLeft)
         viewCardLeft.addSubview(textAboutRateLeft)
-        viewCardLeft.addSubview(iconContainerLeft)
+        viewCardLeft.addSubview(checkBoxLeft)
         
         viewCardRight.addSubview(titleInCardRight)
         viewCardRight.addSubview(textAboutCostRight)
         viewCardRight.addSubview(textAboutRateRight)
-        viewCardRight.addSubview(iconContainerRight)
+        viewCardRight.addSubview(checkBoxRight)
         
         addSubview(buttonProceed)
         addSubview(textCommentAboutSubscription)
-        addSubview(textAboutSubscription)
+        addSubview(stackViewButton)
+        stackViewButton.addArrangedSubview(buttonRegistration)
+        stackViewButton.addArrangedSubview(textAboutSubscription)
+        stackViewButton.addArrangedSubview(buttonLogIn)
     }
     
     // MARK: - Layout
+    
     private func setupLayout() {
         NSLayoutConstraint.activate([
             
@@ -237,54 +161,134 @@ class MainScreenView: UIView {
             textAboutRateRight.topAnchor.constraint(equalTo: textAboutCostRight.bottomAnchor, constant: 15),
             textAboutRateRight.trailingAnchor.constraint(equalTo: viewCardRight.trailingAnchor, constant: -15),
             
-            iconContainerLeft.leadingAnchor.constraint(equalTo: viewCardLeft.leadingAnchor, constant: 15),
-            iconContainerLeft.topAnchor.constraint(equalTo: textAboutRateLeft.bottomAnchor, constant: 20),
-            iconContainerLeft.heightAnchor.constraint(equalToConstant: 30),
-            iconContainerLeft.widthAnchor.constraint(equalToConstant: 30),
+            checkBoxLeft.leadingAnchor.constraint(equalTo: viewCardLeft.leadingAnchor, constant: 15),
+            checkBoxLeft.topAnchor.constraint(equalTo: textAboutRateLeft.bottomAnchor, constant: 20),
+            checkBoxLeft.heightAnchor.constraint(equalToConstant: 30),
+            checkBoxLeft.widthAnchor.constraint(equalToConstant: 30),
             
-            iconContainerRight.leadingAnchor.constraint(equalTo: viewCardRight.leadingAnchor, constant: 15),
-            iconContainerRight.topAnchor.constraint(equalTo: textAboutRateRight.bottomAnchor, constant: 20),
-            iconContainerRight.heightAnchor.constraint(equalToConstant: 30),
-            iconContainerRight.widthAnchor.constraint(equalToConstant: 30),
-            
-//            icon.centerXAnchor.constraint(equalTo: iconContainer.centerXAnchor),
-//            icon.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
-//            icon.heightAnchor.constraint(equalToConstant: 35),
-//            icon.widthAnchor.constraint(equalToConstant: 35)
-            
+            checkBoxRight.leadingAnchor.constraint(equalTo: viewCardRight.leadingAnchor, constant: 15),
+            checkBoxRight.topAnchor.constraint(equalTo: textAboutRateRight.bottomAnchor, constant: 20),
+            checkBoxRight.heightAnchor.constraint(equalToConstant: 30),
+            checkBoxRight.widthAnchor.constraint(equalToConstant: 30),
+        
             textCommentAboutSubscription.centerXAnchor.constraint(equalTo: centerXAnchor),
             textCommentAboutSubscription.topAnchor.constraint(equalTo: buttonProceed.bottomAnchor, constant: 15),
-            
-            textAboutSubscription.centerXAnchor.constraint(equalTo: centerXAnchor),
-            textAboutSubscription.topAnchor.constraint(equalTo: buttonProceed.bottomAnchor, constant: 70)
+           
+            stackViewButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackViewButton.topAnchor.constraint(equalTo: buttonProceed.bottomAnchor, constant: 70),
         ])
+    }
+    
+    // MARK: - Action buttons check
+    
+    @objc func tapCheckBox() {
+        
+        isChoiceCheckBox = !isChoiceCheckBox
+        
+        if isChoiceCheckBox {
+            checkBoxLeft.setImage(UIImage(systemName: "checkmark"), for: .normal)
+            checkBoxRight.setImage(UIImage(systemName: ""), for: .normal)
+        } else {
+            checkBoxLeft.setImage(UIImage(systemName: ""), for: .normal)
+            checkBoxRight.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        }
+    }
+    
+    
+    var registrationAction: (() -> Void)?
+    
+    @objc func tapButtonRegistration() {
+        registrationAction?()
+    }
+    
+    // MARK: - Add function labels in card
+    
+    private func configureTitleInCard(text: String, textColor: UIColor) -> UILabel {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.textAlignment = .center
+        label.textColor = textColor
+        label.text = text
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+    
+    private func configureTextAboutCost(text: String, textColor: UIColor) -> UILabel {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.textColor = textColor
+        label.lineBreakMode = .byCharWrapping
+        label.numberOfLines = 0
+        label.text = text
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+    
+    private func configureTextAboutRate(text: String, textColor: UIColor) -> UILabel {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20, weight: .light)
+        label.textColor = textColor
+        label.text = text
+        label.addInterlineSpacing()
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+    
+    private func configureButtonsRegistrationOrLogin(text: String) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(text, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .light)
+        button.addTarget(self, action: #selector(tapButtonRegistration), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
+    
+    // MARK: - Add function button in card
+    
+    private func configureButton() -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(tapCheckBox), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
+    
+    // MARK: - Add function view card
+    
+    private func configureViewCard(color: UIColor) -> UIView {
+        let viewCard = UIView()
+        viewCard.backgroundColor = color
+        viewCard.layer.cornerRadius = 5
+        viewCard.translatesAutoresizingMaskIntoConstraints = false
+        return viewCard
     }
 }
 
 private extension UILabel {
-
+    
     // MARK: - spacingValue is spacing that you need
     func addInterlineSpacing(spacingValue: CGFloat = 2) {
-
+        
         // MARK: - Check if there's any text
         guard let textString = text else { return }
-
+        
         // MARK: - Create "NSMutableAttributedString" with your text
         let attributedString = NSMutableAttributedString(string: textString)
-
+        
         // MARK: - Create instance of "NSMutableParagraphStyle"
         let paragraphStyle = NSMutableParagraphStyle()
-
+        
         // MARK: - Actually adding spacing we need to ParagraphStyle
         paragraphStyle.lineSpacing = spacingValue
-
+        
         // MARK: - Adding ParagraphStyle to your attributed String
         attributedString.addAttribute(
             .paragraphStyle,
             value: paragraphStyle,
-            range: NSRange(location: 0, length: attributedString.length
-        ))
-
+            range: NSRange(location: 0, length: attributedString.length))
+        
         // MARK: - Assign string that you've modified to current attributed Text
         attributedText = attributedString
     }
