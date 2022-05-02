@@ -9,14 +9,18 @@ import UIKit
 
 class MainScreenViewController: UIViewController {
     
-    var coordinator: MainScreenCoordinator?
+    private var mainScreenView: MainScreenView? {
+        guard isViewLoaded else { return nil }
+        return view as? MainScreenView
+    }
     
-    var mainScreenView = MainScreenView()
+    var coordinator: OpenScreenRegistration?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = mainScreenView as? UIView
+        self.view = MainScreenView()
+        mainScreenView?.registrationAction = { [weak self] in
+            self?.coordinator?.openScreenRegistration()
+        }
     }
-
-
 }
-

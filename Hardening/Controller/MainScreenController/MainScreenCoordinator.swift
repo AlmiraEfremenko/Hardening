@@ -8,9 +8,13 @@
 import Foundation
 import UIKit
 
-class MainScreenCoordinator: Coordinator {
-    
-    var navigationController: UINavigationController?
+protocol OpenScreenRegistration {
+    func openScreenRegistration()
+}
+
+class MainScreenCoordinator: Coordinator, OpenScreenRegistration {
+   
+    var navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -19,11 +23,11 @@ class MainScreenCoordinator: Coordinator {
     func start() {
         let mainScreenViewController = MainScreenViewController()
         mainScreenViewController.coordinator = self
-        navigationController?.pushViewController(mainScreenViewController, animated: true)
-        
+        navigationController.pushViewController(mainScreenViewController, animated: false)
     }
     
-    
- 
-    
+    func openScreenRegistration() {
+        let screenRegistrationCoordinator = ScreenRegistrationCoordinator(navigationController: navigationController)
+        screenRegistrationCoordinator.start()
+    }
 }
