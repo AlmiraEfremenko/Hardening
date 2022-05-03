@@ -28,9 +28,9 @@ class ScreenRegistrationView: UIView {
         return stackView
     }()
     
-    private lazy var nameUser = configureTextField(text: "Ваше имя", isSecureText: false)
-    private lazy var emailUser = configureTextField(text: "Email:", isSecureText: false)
-    private lazy var passwordUser = configureTextField(text: "Пароль:", isSecureText: true)
+    private lazy var nameUser = configureTextField(text: "Ваше имя")
+    private lazy var emailUser = configureTextField(text: "Email:")
+    private lazy var passwordUser = configureTextFieldPassword(text: "Пароль:")
     private lazy var isChoiceCheckBox = false
     
     private lazy var checkBox: UIButton = {
@@ -84,6 +84,14 @@ class ScreenRegistrationView: UIView {
         return stackView
     }()
     
+    private lazy var iconSecurityPassword: UIButton = {
+        var button = UIButton()
+        button.addTarget(self, action: #selector(toggleSecureEntry), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "eye"), for: .normal)
+        return button
+    }()
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -104,6 +112,7 @@ class ScreenRegistrationView: UIView {
         stackView.addArrangedSubview(nameUser)
         stackView.addArrangedSubview(emailUser)
         stackView.addArrangedSubview(passwordUser)
+        passwordUser.addSubview(iconSecurityPassword)
         addSubview(checkBox)
         addSubview(textPersonalData)
         addSubview(buttonProceed)
@@ -155,19 +164,35 @@ class ScreenRegistrationView: UIView {
             buttonInstagramLogIn.widthAnchor.constraint(equalToConstant: 30),
             
             buttonVKLogIn.heightAnchor.constraint(equalToConstant: 30),
-            buttonVKLogIn.widthAnchor.constraint(equalToConstant: 30)
+            buttonVKLogIn.widthAnchor.constraint(equalToConstant: 30),
+            
+            iconSecurityPassword.trailingAnchor.constraint(equalTo: passwordUser.trailingAnchor, constant: -15),
+            iconSecurityPassword.centerYAnchor.constraint(equalTo: passwordUser.centerYAnchor)
         ])
     }
     
     // MARK: - Add settings textField
     
-    private func configureTextField(text: String, isSecureText: Bool) -> UITextField {
+    private func configureTextField(text: String) -> UITextField {
         let textField = UITextField()
         textField.placeholder = text
         textField.textColor = .gray
         textField.layer.cornerRadius = 20
-        textField.isSecureTextEntry = isSecureText
         textField.setLeftPaddingPoints(20)
+        //textField.isSecureTextEntry = isSecureText
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.backgroundColor = .systemGray5
+        return textField
+    }
+    
+    private func configureTextFieldPassword(text: String) -> UITextField {
+        let textField = UITextField()
+        textField.placeholder = text
+        textField.textColor = .gray
+        textField.layer.cornerRadius = 20
+        textField.setLeftPaddingPoints(20)
+        textField.isSecureTextEntry = true
+        textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .systemGray5
         return textField
@@ -181,6 +206,20 @@ class ScreenRegistrationView: UIView {
         button.setImage(UIImage(named: nameImage), for: .normal)
         button.contentMode = .center
         return button
+    }
+    
+    // MARK: - Add settings buttonSecurityTextField
+    
+    @objc func toggleSecureEntry(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            passwordUser.isSecureTextEntry = false
+            sender.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        } else {
+            passwordUser.isSecureTextEntry = true
+            sender.setImage(UIImage(systemName: "eye"), for: .normal)
+        }
     }
     
     // MARK: - Add action button
@@ -204,5 +243,14 @@ extension UITextField {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
         self.leftView = paddingView
         self.leftViewMode = .always
+    }
+}
+
+// MARK: - Add extension UITextFieldDelegate for amount password in textField
+
+extension ScreenRegistrationView: UITextFieldDelegate {
+    
+   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return range.location < 10
     }
 }
