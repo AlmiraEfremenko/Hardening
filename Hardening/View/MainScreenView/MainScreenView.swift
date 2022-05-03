@@ -66,9 +66,8 @@ class MainScreenView: UIView {
         return stackView
     }()
     
-    private lazy var buttonRegistration = configureButtonsRegistrationOrLogin(text: "Зарегистрироваться", action: Selector(("tapButtonRegistration")))
-    
-    private lazy var buttonLogIn = configureButtonsRegistrationOrLogin(text: "Войти", action: Selector(("tapButtonLogIn")))
+  lazy var buttonRegistration = configureButtonsRegistrationOrLogin(text: "Зарегистрироваться")
+    private lazy var buttonLogIn = configureButtonsRegistrationOrLogin(text: "Войти")
     
     private lazy var textAboutSubscription: UILabel = {
         var textAboutSubscription = UILabel()
@@ -195,18 +194,11 @@ class MainScreenView: UIView {
         }
     }
     
-    // MARK: - Tap button registration or log in
     
-    // closure
     var registrationAction: (() -> Void)?
-    var logIn: (() -> Void)?
     
     @objc func tapButtonRegistration() {
         registrationAction?()
-    }
-    
-    @objc func tapButtonLogIn() {
-        logIn?()
     }
     
     // MARK: - Add function labels in card
@@ -243,11 +235,11 @@ class MainScreenView: UIView {
         return label
     }
     
-    private func configureButtonsRegistrationOrLogin(text: String, action: Selector) -> UIButton {
+    private func configureButtonsRegistrationOrLogin(text: String) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(text, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .light)
-        button.addTarget(self, action: action, for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapButtonRegistration), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
