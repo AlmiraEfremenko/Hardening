@@ -35,7 +35,6 @@ class ScreenRegistrationView: UIView {
     
     private lazy var checkBox: UIButton = {
         var checkBox = UIButton()
-//        checkBox.setImage(UIImage(systemName: "checkmark")?.withTintColor(.gray, renderingMode: .alwaysOriginal), for: .normal)
         checkBox.backgroundColor = .white
         checkBox.layer.borderWidth = 0.3
         checkBox.addTarget(self, action: #selector(tapCheckBox), for: .touchUpInside)
@@ -152,7 +151,6 @@ class ScreenRegistrationView: UIView {
             
             stackViewInButtonsLogIn.centerXAnchor.constraint(equalTo: centerXAnchor),
             stackViewInButtonsLogIn.topAnchor.constraint(equalTo: logInSocialNetwork.bottomAnchor, constant: 20),
-            
             buttonInstagramLogIn.heightAnchor.constraint(equalToConstant: 30),
             buttonInstagramLogIn.widthAnchor.constraint(equalToConstant: 30),
             
