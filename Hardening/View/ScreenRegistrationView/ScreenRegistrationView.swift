@@ -28,9 +28,9 @@ class ScreenRegistrationView: UIView {
         return stackView
     }()
     
-    private lazy var nameUser = configureTextField(text: "Ваше имя")
-    private lazy var emailUser = configureTextField(text: "Email:")
-    private lazy var passwordUser = configureTextField(text: "Пароль:")
+    private lazy var nameUser = configureTextField(text: "Ваше имя", isSecureText: false)
+    private lazy var emailUser = configureTextField(text: "Email:", isSecureText: false)
+    private lazy var passwordUser = configureTextField(text: "Пароль:", isSecureText: true)
     private lazy var isChoiceCheckBox = false
     
     private lazy var checkBox: UIButton = {
@@ -161,11 +161,12 @@ class ScreenRegistrationView: UIView {
     
     // MARK: - Add settings textField
     
-    private func configureTextField(text: String) -> UITextField {
+    private func configureTextField(text: String, isSecureText: Bool) -> UITextField {
         let textField = UITextField()
         textField.placeholder = text
         textField.textColor = .gray
         textField.layer.cornerRadius = 20
+        textField.isSecureTextEntry = isSecureText
         textField.setLeftPaddingPoints(20)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .systemGray5
