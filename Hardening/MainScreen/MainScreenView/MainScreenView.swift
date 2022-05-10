@@ -11,7 +11,7 @@ class MainScreenView: UIView {
     
     // MARK: - Property
     
-    var data = Model.data
+    var data = MainScreenModel.data
    
     private lazy var titleLarge: UILabel = {
         var titleLarge = UILabel()
@@ -24,12 +24,12 @@ class MainScreenView: UIView {
         return titleLarge
     }()
     
-    private lazy var titleInCardLeft = configureTitleInCard(text: "1 месяц", textColor: .black)
-    private lazy var titleInCardRight = configureTitleInCard(text: "6 месяцев", textColor: .white)
-    private lazy var textAboutCostLeft = configureTextAboutCost(text: "379 руб. в месяц", textColor: .black)
-    private lazy var textAboutCostRight = configureTextAboutCost(text: "1050 руб. в месяц", textColor: .white)
-    private lazy var textAboutRateLeft = configureTextAboutRate(text: "Ежемесячная оплата, первые 7 дней без оплаты", textColor: .gray)
-    private lazy var textAboutRateRight = configureTextAboutRate(text: "Ежемесячная оплата, первые 7 дней без оплаты", textColor: .systemGray4)
+    private lazy var titleInCardLeft = configureTitleInCard(text: data.titleInCardLeft, textColor: .black)
+    private lazy var titleInCardRight = configureTitleInCard(text: data.titleInCardRight, textColor: .white)
+    private lazy var textAboutCostLeft = configureTextAboutCost(text: data.textAboutCostLeft, textColor: .black)
+    private lazy var textAboutCostRight = configureTextAboutCost(text: data.textAboutCostRight, textColor: .white)
+    private lazy var textAboutRateLeft = configureTextAboutRate(text: data.textAboutRateLeft, textColor: .gray)
+    private lazy var textAboutRateRight = configureTextAboutRate(text: data.textAboutRateRight, textColor: .systemGray4)
     private lazy var viewCardLeft = configureViewCard(color: .lightGray.withAlphaComponent(0.5))
     private lazy var viewCardRight = configureViewCard(color: .blue)
     private lazy var checkBoxLeft = configureButton()
@@ -42,7 +42,7 @@ class MainScreenView: UIView {
         buttonProceed.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
         buttonProceed.setTitleColor(.white, for: .normal)
         buttonProceed.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/150.0, blue: 255.0/255.0, alpha: 1.0)
-       // buttonProceed.addTarget(self, action: #selector(tapButtonRegistration), for: .touchUpInside)
+        //buttonProceed.addTarget(self, action: #selector(tapButtonRegistration), for: .touchUpInside)
         buttonProceed.layer.cornerRadius = 18
         buttonProceed.translatesAutoresizingMaskIntoConstraints = false
         return buttonProceed
@@ -52,7 +52,7 @@ class MainScreenView: UIView {
         var textCommentAboutSubscription = UILabel()
         textCommentAboutSubscription.font = .systemFont(ofSize: 18, weight: .regular)
         textCommentAboutSubscription.textColor = .black
-        textCommentAboutSubscription.text = "Отписаться можно в любой момент"
+        textCommentAboutSubscription.text = data.textCommentAboutSubscription
         textCommentAboutSubscription.textAlignment = .center
         textCommentAboutSubscription.translatesAutoresizingMaskIntoConstraints = false
         return textCommentAboutSubscription
