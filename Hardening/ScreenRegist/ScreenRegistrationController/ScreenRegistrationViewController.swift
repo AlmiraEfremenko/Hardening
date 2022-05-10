@@ -20,5 +20,8 @@ class ScreenRegistrationViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.view = ScreenRegistrationView()
+        screenRegistrationView?.finishRegistration = { [weak self] in
+            self?.coordinator?.openScreenGreetings()
+        }
     }
 }

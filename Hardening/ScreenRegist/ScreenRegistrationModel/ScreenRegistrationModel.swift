@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+struct ScreenRegistrationModel {
+    var registration: String
+    var textPersonalData: String
+    var logInSocialNetwork: String
+}
+
+extension ScreenRegistrationModel {
+    
+    static var data = ScreenRegistrationModel(registration: "Регистрация",
+                                              textPersonalData: "Оставляя свои данные вы соглашаетесь с политикой конфиденциальности",
+                                              logInSocialNetwork: "Или войдите через")
+}

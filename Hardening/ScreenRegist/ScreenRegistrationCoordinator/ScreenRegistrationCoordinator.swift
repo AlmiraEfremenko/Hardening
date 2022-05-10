@@ -8,7 +8,11 @@
 import Foundation
 import UIKit
 
-class ScreenRegistrationCoordinator: Coordinator {
+protocol OpenScreenGreetings {
+    func openScreenGreetings()
+}
+
+class ScreenRegistrationCoordinator: Coordinator, OpenScreenGreetings {
     
     var navigationController: UINavigationController
     
@@ -20,5 +24,10 @@ class ScreenRegistrationCoordinator: Coordinator {
         let screenRegistrationViewController = ScreenRegistrationViewController()
         screenRegistrationViewController.coordinator = self
         navigationController.pushViewController(screenRegistrationViewController, animated: false)
+    }
+    
+    func openScreenGreetings() {
+        let screenGreetingsCoordinator = ScreenGreetingsCoordinator(navigationController: navigationController)
+        screenGreetingsCoordinator.start()
     }
 }
