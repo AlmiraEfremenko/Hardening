@@ -11,9 +11,11 @@ class ScreenRegistrationView: UIView {
     
     // MARK: - Property
     
+    private var registrationModel = ScreenRegistrationModel.data
+    
     private lazy var titleRegistration: UILabel = {
        var label = UILabel()
-        label.text = "Регистрация"
+        label.text = registrationModel.registration
         label.font = .systemFont(ofSize: 25, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -44,7 +46,7 @@ class ScreenRegistrationView: UIView {
     
     private lazy var textPersonalData: UILabel = {
        var label = UILabel()
-        label.text = "Оставляя свои данные Вы соглашаетесь с политикой конфиденциальности"
+        label.text = registrationModel.textPersonalData
         label.textColor = .gray
         label.font = .systemFont(ofSize: 14, weight: .light)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +60,7 @@ class ScreenRegistrationView: UIView {
         buttonProceed.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
         buttonProceed.setTitleColor(.white, for: .normal)
         buttonProceed.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/150.0, blue: 255.0/255.0, alpha: 1.0)
-       // buttonProceed.addTarget(self, action: #selector(tapButtonRegistration), for: .touchUpInside)
+        buttonProceed.addTarget(self, action: #selector(tapButtonRegistration), for: .touchUpInside)
         buttonProceed.layer.cornerRadius = 18
         buttonProceed.translatesAutoresizingMaskIntoConstraints = false
         return buttonProceed
@@ -66,7 +68,7 @@ class ScreenRegistrationView: UIView {
     
     private lazy var logInSocialNetwork: UILabel = {
        var label = UILabel()
-        label.text = "Или войдите через:"
+        label.text = registrationModel.logInSocialNetwork
         label.font = .systemFont(ofSize: 14)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -91,6 +93,8 @@ class ScreenRegistrationView: UIView {
         button.setImage(UIImage(systemName: "eye"), for: .normal)
         return button
     }()
+    
+    var finishRegistration: (()-> Void)?
     
     // MARK: - Init
     
@@ -179,7 +183,6 @@ class ScreenRegistrationView: UIView {
         textField.textColor = .gray
         textField.layer.cornerRadius = 20
         textField.setLeftPaddingPoints(20)
-        //textField.isSecureTextEntry = isSecureText
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .systemGray5
         return textField
@@ -219,6 +222,21 @@ class ScreenRegistrationView: UIView {
         } else {
             passwordUser.isSecureTextEntry = true
             sender.setImage(UIImage(systemName: "eye"), for: .normal)
+        }
+    }
+    
+    // MARK: - Add func button finish registration
+    
+    @objc func tapButtonRegistration() {
+        
+        guard let name = nameUser.text else { return }
+        guard let email = emailUser.text else { return }
+        guard let password = passwordUser.text else { return }
+        
+        if !name.isEmpty, !email.isEmpty, !password.isEmpty && isChoiceCheckBox {
+            finishRegistration?()
+        } else {
+            buttonProceed.isEnabled = true
         }
     }
     
