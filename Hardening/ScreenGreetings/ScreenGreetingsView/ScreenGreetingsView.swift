@@ -179,6 +179,7 @@ class ScreenGreetingsView: UIView {
             buttonCheckAboutHealthHeart.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/150.0, blue: 255.0/255.0, alpha: 1.0)
         } else {
             buttonCheckAboutHealthHeart.setImage(UIImage(systemName: ""), for: .normal)
+            buttonCheckAboutHealthHeart.backgroundColor = .systemGray5
         }
     }
     
@@ -193,6 +194,7 @@ class ScreenGreetingsView: UIView {
             buttonCheckAboutHealth.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/150.0, blue: 255.0/255.0, alpha: 1.0)
         } else {
             buttonCheckAboutHealth.setImage(UIImage(systemName: ""), for: .normal)
+            buttonCheckAboutHealth.backgroundColor = .systemGray5
         }
     }
     
@@ -207,6 +209,8 @@ class ScreenGreetingsView: UIView {
         }
     }
 }
+
+// MARK: - extension UILabel 
 
 private extension UILabel {
     
