@@ -20,6 +20,10 @@
 		0440D29C2819807A005A7E26 /* ScreenRegistrationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440D29B2819807A005A7E26 /* ScreenRegistrationCoordinator.swift */; };
 		0440D29E28198090005A7E26 /* ScreenRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440D29D28198090005A7E26 /* ScreenRegistrationViewController.swift */; };
 		0440D2A1281980F0005A7E26 /* ScreenRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440D2A0281980F0005A7E26 /* ScreenRegistrationView.swift */; };
+		04517356282C38FD00CE67DA /* ScreenStageHardeningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04517355282C38FD00CE67DA /* ScreenStageHardeningModel.swift */; };
+		04517358282C391B00CE67DA /* ScreenStageHardeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04517357282C391B00CE67DA /* ScreenStageHardeningView.swift */; };
+		0451735A282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04517359282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift */; };
+		0451735C282C394300CE67DA /* ScreenStageHardeningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451735B282C394300CE67DA /* ScreenStageHardeningController.swift */; };
 		0462FF2A282034F400195314 /* ScreenLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462FF29282034F400195314 /* ScreenLogInView.swift */; };
 		047F1427282A8F9600F2C42F /* ScreenRegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F1426282A8F9600F2C42F /* ScreenRegistrationModel.swift */; };
 		047F142A282A922000F2C42F /* ScreenGreetingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F1429282A922000F2C42F /* ScreenGreetingsModel.swift */; };
@@ -46,6 +50,10 @@
 		0440D29B2819807A005A7E26 /* ScreenRegistrationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRegistrationCoordinator.swift; sourceTree = "<group>"; };
 		0440D29D28198090005A7E26 /* ScreenRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRegistrationViewController.swift; sourceTree = "<group>"; };
 		0440D2A0281980F0005A7E26 /* ScreenRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRegistrationView.swift; sourceTree = "<group>"; };
+		04517355282C38FD00CE67DA /* ScreenStageHardeningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStageHardeningModel.swift; sourceTree = "<group>"; };
+		04517357282C391B00CE67DA /* ScreenStageHardeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStageHardeningView.swift; sourceTree = "<group>"; };
+		04517359282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStageHardeningCoordinator.swift; sourceTree = "<group>"; };
+		0451735B282C394300CE67DA /* ScreenStageHardeningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStageHardeningController.swift; sourceTree = "<group>"; };
 		0462FF29282034F400195314 /* ScreenLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLogInView.swift; sourceTree = "<group>"; };
 		047F1426282A8F9600F2C42F /* ScreenRegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRegistrationModel.swift; sourceTree = "<group>"; };
 		047F1429282A922000F2C42F /* ScreenGreetingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenGreetingsModel.swift; sourceTree = "<group>"; };
@@ -116,6 +124,7 @@
 				047F1422282A849900F2C42F /* ScreenRegist */,
 				043F7AAD280F2AA3007353E2 /* ScreenLogIn */,
 				047F1428282A920B00F2C42F /* ScreenGreetings */,
+				04517354282C38B500CE67DA /* ScreenStageHardening */,
 				042E9E60280C1ECA00116ABE /* Assets.xcassets */,
 				042E9E62280C1ECA00116ABE /* LaunchScreen.storyboard */,
 				042E9E65280C1ECA00116ABE /* Info.plist */,
@@ -157,6 +166,49 @@
 				0440D2A0281980F0005A7E26 /* ScreenRegistrationView.swift */,
 			);
 			path = ScreenRegistrationView;
+			sourceTree = "<group>";
+		};
+		04517350282C387100CE67DA /* ScreenGreetingsModel */ = {
+			isa = PBXGroup;
+			children = (
+				047F1429282A922000F2C42F /* ScreenGreetingsModel.swift */,
+			);
+			path = ScreenGreetingsModel;
+			sourceTree = "<group>";
+		};
+		04517351282C388000CE67DA /* ScreenGreetingsView */ = {
+			isa = PBXGroup;
+			children = (
+				047F142B282A923000F2C42F /* ScreenGreetingsView.swift */,
+			);
+			path = ScreenGreetingsView;
+			sourceTree = "<group>";
+		};
+		04517352282C388E00CE67DA /* ScreenGreetingsCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				047F142D282A924100F2C42F /* ScreenGreetingsCoordinator.swift */,
+			);
+			path = ScreenGreetingsCoordinator;
+			sourceTree = "<group>";
+		};
+		04517353282C389C00CE67DA /* ScreenGreetingsController */ = {
+			isa = PBXGroup;
+			children = (
+				047F142F282A925000F2C42F /* ScreenGreetingsViewController.swift */,
+			);
+			path = ScreenGreetingsController;
+			sourceTree = "<group>";
+		};
+		04517354282C38B500CE67DA /* ScreenStageHardening */ = {
+			isa = PBXGroup;
+			children = (
+				04517355282C38FD00CE67DA /* ScreenStageHardeningModel.swift */,
+				04517357282C391B00CE67DA /* ScreenStageHardeningView.swift */,
+				04517359282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift */,
+				0451735B282C394300CE67DA /* ScreenStageHardeningController.swift */,
+			);
+			path = ScreenStageHardening;
 			sourceTree = "<group>";
 		};
 		0462FF28282034D300195314 /* ScreenLogInView */ = {
@@ -248,10 +300,10 @@
 		047F1428282A920B00F2C42F /* ScreenGreetings */ = {
 			isa = PBXGroup;
 			children = (
-				047F1429282A922000F2C42F /* ScreenGreetingsModel.swift */,
-				047F142B282A923000F2C42F /* ScreenGreetingsView.swift */,
-				047F142D282A924100F2C42F /* ScreenGreetingsCoordinator.swift */,
-				047F142F282A925000F2C42F /* ScreenGreetingsViewController.swift */,
+				04517350282C387100CE67DA /* ScreenGreetingsModel */,
+				04517351282C388000CE67DA /* ScreenGreetingsView */,
+				04517352282C388E00CE67DA /* ScreenGreetingsCoordinator */,
+				04517353282C389C00CE67DA /* ScreenGreetingsController */,
 			);
 			path = ScreenGreetings;
 			sourceTree = "<group>";
@@ -336,13 +388,17 @@
 			files = (
 				043F7AB2280F2AD8007353E2 /* MainScreenModel.swift in Sources */,
 				047F142C282A923000F2C42F /* ScreenGreetingsView.swift in Sources */,
+				04517358282C391B00CE67DA /* ScreenStageHardeningView.swift in Sources */,
 				043F7AAF280F2AB7007353E2 /* MainScreenView.swift in Sources */,
 				0462FF2A282034F400195314 /* ScreenLogInView.swift in Sources */,
 				042E9E5C280C1EC900116ABE /* MainScreenViewController.swift in Sources */,
 				047F1427282A8F9600F2C42F /* ScreenRegistrationModel.swift in Sources */,
 				0440D29C2819807A005A7E26 /* ScreenRegistrationCoordinator.swift in Sources */,
+				04517356282C38FD00CE67DA /* ScreenStageHardeningModel.swift in Sources */,
 				042E9E58280C1EC900116ABE /* AppDelegate.swift in Sources */,
+				0451735A282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift in Sources */,
 				0440D2A1281980F0005A7E26 /* ScreenRegistrationView.swift in Sources */,
+				0451735C282C394300CE67DA /* ScreenStageHardeningController.swift in Sources */,
 				047F1430282A925000F2C42F /* ScreenGreetingsViewController.swift in Sources */,
 				042E9E5A280C1EC900116ABE /* SceneDelegate.swift in Sources */,
 				04823D25281D66CC00D7998C /* ScreenLogInViewController.swift in Sources */,
