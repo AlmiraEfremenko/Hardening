@@ -9,7 +9,7 @@ import UIKit
 
 class ScreenGreetingsViewController: UIViewController {
     
-    private var mainScreenView: ScreenGreetingsView? {
+    private var screenGreetingsView: ScreenGreetingsView? {
         guard isViewLoaded else { return nil }
         return view as? ScreenGreetingsView
     }
@@ -19,6 +19,9 @@ class ScreenGreetingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationItem.leftBarButtonItem?.title = "Пропустить"
+        self.view = ScreenGreetingsView()
+        screenGreetingsView?.followScreenStageHardening = { [weak self] in
+            self?.coordinator?.openScreenStageHardening()
+        }
     }
 }

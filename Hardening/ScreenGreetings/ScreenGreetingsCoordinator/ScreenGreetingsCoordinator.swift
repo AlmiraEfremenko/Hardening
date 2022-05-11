@@ -7,7 +7,11 @@
 
 import UIKit
 
-class ScreenGreetingsCoordinator: Coordinator {
+protocol OpenScreenStageHardening {
+    func openScreenStageHardening()
+}
+
+class ScreenGreetingsCoordinator: Coordinator, OpenScreenStageHardening {
     
     var navigationController: UINavigationController
     
@@ -19,5 +23,10 @@ class ScreenGreetingsCoordinator: Coordinator {
         let openScreenGreetingsViewController = ScreenGreetingsViewController()
         openScreenGreetingsViewController.coordinator = self
         navigationController.pushViewController(openScreenGreetingsViewController, animated: false)
+    }
+    
+    func openScreenStageHardening() {
+        let screenStageHardeningCoordinator = ScreenStageHardeningCoordinator(navigationController: navigationController)
+        screenStageHardeningCoordinator.start()
     }
 }

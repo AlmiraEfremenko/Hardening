@@ -228,16 +228,17 @@ class ScreenRegistrationView: UIView {
     // MARK: - Add func button finish registration
     
     @objc func tapButtonRegistration() {
+        finishRegistration?()
         
-        guard let name = nameUser.text else { return }
-        guard let email = emailUser.text else { return }
-        guard let password = passwordUser.text else { return }
-        
-        if !name.isEmpty, !email.isEmpty, !password.isEmpty && isChoiceCheckBox {
-            finishRegistration?()
-        } else {
-            buttonProceed.isEnabled = true
-        }
+//        guard let name = nameUser.text else { return }
+//        guard let email = emailUser.text else { return }
+//        guard let password = passwordUser.text else { return }
+//
+//        if !name.isEmpty, !email.isEmpty, !password.isEmpty && isChoiceCheckBox {
+//            finishRegistration?()
+//        } else {
+//            buttonProceed.isEnabled = true
+//        }
     }
     
     // MARK: - Add action button
@@ -257,7 +258,7 @@ class ScreenRegistrationView: UIView {
 // MARK: - Add extension UITextField spacing
 
 extension UITextField {
-    func setLeftPaddingPoints(_ amount:CGFloat) {
+    func setLeftPaddingPoints(_ amount: CGFloat) {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
         self.leftView = paddingView
         self.leftViewMode = .always
@@ -269,6 +270,6 @@ extension UITextField {
 extension ScreenRegistrationView: UITextFieldDelegate {
     
    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return range.location < 10
+        return range.location < 5
     }
 }
