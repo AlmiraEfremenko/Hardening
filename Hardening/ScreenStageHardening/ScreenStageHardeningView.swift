@@ -5,4 +5,8 @@
 //  Created by MAC on 11.05.2022.
 //
 
-import Foundation
+import UIKit
+
+class ScreenStageHardeningView: UIView {
+    
+}
