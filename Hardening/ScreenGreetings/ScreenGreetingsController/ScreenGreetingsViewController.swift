@@ -19,6 +19,6 @@ class ScreenGreetingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationItem.leftBarButtonItem?.title = "Пропустить"
+        self.view = ScreenGreetingsView()
     }
 }
