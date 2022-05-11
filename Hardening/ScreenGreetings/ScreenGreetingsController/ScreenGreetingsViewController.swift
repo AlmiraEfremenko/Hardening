@@ -9,7 +9,7 @@ import UIKit
 
 class ScreenGreetingsViewController: UIViewController {
     
-    private var mainScreenView: ScreenGreetingsView? {
+    private var screenGreetingsView: ScreenGreetingsView? {
         guard isViewLoaded else { return nil }
         return view as? ScreenGreetingsView
     }
@@ -20,5 +20,8 @@ class ScreenGreetingsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.view = ScreenGreetingsView()
+        screenGreetingsView?.followScreenStageHardening = { [weak self] in
+            self?.coordinator?.openScreenStageHardening()
+        }
     }
 }
