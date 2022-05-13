@@ -23,5 +23,8 @@ class ScreenRegistrationViewController: UIViewController {
         screenRegistrationView?.finishRegistration = { [weak self] in
             self?.coordinator?.openScreenGreetings()
         }
+        
+        //screenRegistrationView?.safeData()
+        print("Data save2")
     }
 }

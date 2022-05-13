@@ -11,6 +11,7 @@ class ScreenRegistrationView: UIView {
     
     // MARK: - Property
     
+    private let defaults = UserDefaults.standard
     private var registrationModel = ScreenRegistrationModel.data
     
     private lazy var titleRegistration: UILabel = {
@@ -230,15 +231,25 @@ class ScreenRegistrationView: UIView {
     @objc func tapButtonRegistration() {
         finishRegistration?()
         
-//        guard let name = nameUser.text else { return }
-//        guard let email = emailUser.text else { return }
-//        guard let password = passwordUser.text else { return }
-//
-//        if !name.isEmpty, !email.isEmpty, !password.isEmpty && isChoiceCheckBox {
-//            finishRegistration?()
-//        } else {
-//            buttonProceed.isEnabled = true
-//        }
+        guard let name = nameUser.text else { return }
+        guard let email = emailUser.text else { return }
+        guard let password = passwordUser.text else { return }
+
+        if !name.isEmpty, !email.isEmpty, !password.isEmpty && isChoiceCheckBox {
+            finishRegistration?()
+        } else {
+            buttonProceed.isEnabled = true
+        }
+        
+        defaults.set(name, forKey: "name")
+        defaults.set(email, forKey: "email")
+        defaults.set(password, forKey: "password")
+    }
+    
+    func safeData() {
+        nameUser.text = defaults.string(forKey: "name")
+        emailUser.text = defaults.string(forKey: "email")
+        passwordUser.text = defaults.string(forKey: "password")
     }
     
     // MARK: - Add action button
