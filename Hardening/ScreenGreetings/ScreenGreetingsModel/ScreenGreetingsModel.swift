@@ -17,7 +17,7 @@ struct ScreenGreetingsModel {
 
 extension ScreenGreetingsModel {
     
-    static var data = ScreenGreetingsModel(labelGreetings: "Привет, .....",
+    static var data = ScreenGreetingsModel(labelGreetings: "Привет,",
                                            questionsAboutHealth: "Здесь ты познаешь методику закаливания, но перед началом ответь на вопросы",
                                            idont: "Я не:",
                                            textAboutHealthHeart: "Болею сердечно-сосудистыми заболеваниями",
