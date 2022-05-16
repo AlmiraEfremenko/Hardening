@@ -10,8 +10,7 @@ import UIKit
 class ScreenRegistrationView: UIView {
     
     // MARK: - Property
-    
-    private let defaults = UserDefaults.standard
+
     private var registrationModel = ScreenRegistrationModel.data
     
     private lazy var titleRegistration: UILabel = {
@@ -95,6 +94,41 @@ class ScreenRegistrationView: UIView {
         return button
     }()
     
+    private lazy var questionAboutAccount: UILabel = {
+        var label = UILabel()
+         label.text = registrationModel.haveAnAccount
+         label.font = .systemFont(ofSize: 14)
+         label.textColor = .black
+         label.translatesAutoresizingMaskIntoConstraints = false
+         return label
+     }()
+    
+    private lazy var buttonEnter: UIButton = {
+        var button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Войти", for: .normal)
+        button.addTarget(self, action: #selector(tapSignUp), for: .touchUpInside)
+        return button
+    }()
+    
+    var signUp: Bool = true {
+        willSet {
+            if newValue {
+                titleRegistration.text = "Регистрация"
+                nameUser.isHidden = false
+                buttonEnter.setTitle("Войти", for: .normal)
+                textPersonalData.isHidden = false
+                checkBox.isHidden = false
+            } else {
+                titleRegistration.text = "Войти"
+                nameUser.isHidden = true
+                buttonEnter.setTitle("Регистрация", for: .normal)
+                textPersonalData.isHidden = true
+                checkBox.isHidden = true
+            }
+        }
+    }
+    
     var finishRegistration: (()-> Void)?
     
     // MARK: - Init
@@ -122,7 +156,9 @@ class ScreenRegistrationView: UIView {
         addSubview(textPersonalData)
         addSubview(buttonProceed)
         addSubview(logInSocialNetwork)
+        addSubview(questionAboutAccount)
         addSubview(stackViewInButtonsLogIn)
+        addSubview(buttonEnter)
         stackViewInButtonsLogIn.addArrangedSubview(buttonInstagramLogIn)
         stackViewInButtonsLogIn.addArrangedSubview(buttonVKLogIn)
     }
@@ -133,7 +169,7 @@ class ScreenRegistrationView: UIView {
         NSLayoutConstraint.activate([
         
             titleRegistration.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleRegistration.topAnchor.constraint(equalTo: topAnchor, constant: 170),
+            titleRegistration.topAnchor.constraint(equalTo: topAnchor, constant: 130),
             
             stackView.topAnchor.constraint(equalTo: titleRegistration.bottomAnchor, constant: 40),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -155,13 +191,21 @@ class ScreenRegistrationView: UIView {
             textPersonalData.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 12),
             textPersonalData.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
+            questionAboutAccount.centerXAnchor.constraint(equalTo: centerXAnchor),
+            questionAboutAccount.topAnchor.constraint(equalTo: textPersonalData.bottomAnchor, constant: 20),
+            
+            buttonEnter.topAnchor.constraint(equalTo: questionAboutAccount.bottomAnchor, constant: 5),
+            buttonEnter.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonEnter.heightAnchor.constraint(equalToConstant: 30),
+            buttonEnter.widthAnchor.constraint(equalToConstant: 100),
+            
             buttonProceed.centerXAnchor.constraint(equalTo: centerXAnchor),
-            buttonProceed.topAnchor.constraint(equalTo: textPersonalData.bottomAnchor,constant: 50),
+            buttonProceed.topAnchor.constraint(equalTo: buttonEnter.bottomAnchor,constant: 35),
             buttonProceed.heightAnchor.constraint(equalToConstant: 55),
             buttonProceed.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1 / 1.1),
             
             logInSocialNetwork.centerXAnchor.constraint(equalTo: centerXAnchor),
-            logInSocialNetwork.topAnchor.constraint(equalTo: buttonProceed.bottomAnchor, constant: 100),
+            logInSocialNetwork.topAnchor.constraint(equalTo: buttonProceed.bottomAnchor, constant: 50),
             
             stackViewInButtonsLogIn.centerXAnchor.constraint(equalTo: centerXAnchor),
             stackViewInButtonsLogIn.topAnchor.constraint(equalTo: logInSocialNetwork.bottomAnchor, constant: 20),
@@ -229,27 +273,25 @@ class ScreenRegistrationView: UIView {
     // MARK: - Add func button finish registration
     
     @objc func tapButtonRegistration() {
-        finishRegistration?()
+        //finishRegistration?()
         
         guard let name = nameUser.text else { return }
         guard let email = emailUser.text else { return }
         guard let password = passwordUser.text else { return }
-
-        if !name.isEmpty, !email.isEmpty, !password.isEmpty && isChoiceCheckBox {
-            finishRegistration?()
-        } else {
-            buttonProceed.isEnabled = true
-        }
         
-        defaults.set(name, forKey: "name")
-        defaults.set(email, forKey: "email")
-        defaults.set(password, forKey: "password")
-    }
-    
-    func safeData() {
-        nameUser.text = defaults.string(forKey: "name")
-        emailUser.text = defaults.string(forKey: "email")
-        passwordUser.text = defaults.string(forKey: "password")
+        if signUp {
+            if !name.isEmpty, !email.isEmpty, !password.isEmpty && isChoiceCheckBox {
+                finishRegistration?()
+            } else {
+                buttonProceed.isEnabled = true
+            }
+        } else {
+            if !email.isEmpty, !password.isEmpty {
+                // Здесь надо отправить пользователя туда где он остановился.......???????????
+            } else {
+                buttonProceed.isEnabled = true
+            }
+        }
     }
     
     // MARK: - Add action button
@@ -263,6 +305,10 @@ class ScreenRegistrationView: UIView {
         } else {
             checkBox.setImage(UIImage(systemName: " "), for: .normal)
         }
+    }
+    
+    @objc func tapSignUp() {
+        signUp = !signUp
     }
 }
 
