@@ -21,9 +21,5 @@ class MainScreenViewController: UIViewController {
         self.view = MainScreenView()
         mainScreenView?.registrationAction = { [weak self] in
             self?.coordinator?.openScreenRegistration()}
-        
-        mainScreenView?.logIn = { [weak self] in
-            self?.coordinator?.openScreenLogIn()
-        }
     }
 }
