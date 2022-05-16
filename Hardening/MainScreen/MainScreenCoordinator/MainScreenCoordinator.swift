@@ -10,7 +10,6 @@ import UIKit
 
 protocol OpenScreenRegistration {
     func openScreenRegistration()
-    func openScreenLogIn()
 }
 
 class MainScreenCoordinator: Coordinator, OpenScreenRegistration {
@@ -30,10 +29,5 @@ class MainScreenCoordinator: Coordinator, OpenScreenRegistration {
     func openScreenRegistration() {
         let screenRegistrationCoordinator = ScreenRegistrationCoordinator(navigationController: navigationController)
         screenRegistrationCoordinator.start()
-    }
-    
-    func openScreenLogIn() {
-        let screenLogInCoordinator = ScreenLogInCoordinator(navigationController: navigationController)
-        screenLogInCoordinator.start()
     }
 }

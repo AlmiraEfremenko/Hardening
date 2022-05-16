@@ -273,7 +273,7 @@ class ScreenRegistrationView: UIView {
     // MARK: - Add func button finish registration
     
     @objc func tapButtonRegistration() {
-        //finishRegistration?()
+        finishRegistration?()
         
         guard let name = nameUser.text else { return }
         guard let email = emailUser.text else { return }

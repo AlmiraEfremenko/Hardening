@@ -24,14 +24,11 @@
 		04517358282C391B00CE67DA /* ScreenStageHardeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04517357282C391B00CE67DA /* ScreenStageHardeningView.swift */; };
 		0451735A282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04517359282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift */; };
 		0451735C282C394300CE67DA /* ScreenStageHardeningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451735B282C394300CE67DA /* ScreenStageHardeningController.swift */; };
-		0462FF2A282034F400195314 /* ScreenLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462FF29282034F400195314 /* ScreenLogInView.swift */; };
 		047F1427282A8F9600F2C42F /* ScreenRegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F1426282A8F9600F2C42F /* ScreenRegistrationModel.swift */; };
 		047F142A282A922000F2C42F /* ScreenGreetingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F1429282A922000F2C42F /* ScreenGreetingsModel.swift */; };
 		047F142C282A923000F2C42F /* ScreenGreetingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F142B282A923000F2C42F /* ScreenGreetingsView.swift */; };
 		047F142E282A924100F2C42F /* ScreenGreetingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F142D282A924100F2C42F /* ScreenGreetingsCoordinator.swift */; };
 		047F1430282A925000F2C42F /* ScreenGreetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F142F282A925000F2C42F /* ScreenGreetingsViewController.swift */; };
-		04823D23281D66B400D7998C /* ScreenLogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04823D22281D66B400D7998C /* ScreenLogInCoordinator.swift */; };
-		04823D25281D66CC00D7998C /* ScreenLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04823D24281D66CC00D7998C /* ScreenLogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,14 +51,11 @@
 		04517357282C391B00CE67DA /* ScreenStageHardeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStageHardeningView.swift; sourceTree = "<group>"; };
 		04517359282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStageHardeningCoordinator.swift; sourceTree = "<group>"; };
 		0451735B282C394300CE67DA /* ScreenStageHardeningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStageHardeningController.swift; sourceTree = "<group>"; };
-		0462FF29282034F400195314 /* ScreenLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLogInView.swift; sourceTree = "<group>"; };
 		047F1426282A8F9600F2C42F /* ScreenRegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRegistrationModel.swift; sourceTree = "<group>"; };
 		047F1429282A922000F2C42F /* ScreenGreetingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenGreetingsModel.swift; sourceTree = "<group>"; };
 		047F142B282A923000F2C42F /* ScreenGreetingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenGreetingsView.swift; sourceTree = "<group>"; };
 		047F142D282A924100F2C42F /* ScreenGreetingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenGreetingsCoordinator.swift; sourceTree = "<group>"; };
 		047F142F282A925000F2C42F /* ScreenGreetingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenGreetingsViewController.swift; sourceTree = "<group>"; };
-		04823D22281D66B400D7998C /* ScreenLogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLogInCoordinator.swift; sourceTree = "<group>"; };
-		04823D24281D66CC00D7998C /* ScreenLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,13 +86,6 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		042A01D12816D06F008E508E /* ScreenLogInModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ScreenLogInModel;
-			sourceTree = "<group>";
-		};
 		042E9E4B280C1EC900116ABE = {
 			isa = PBXGroup;
 			children = (
@@ -122,7 +109,6 @@
 				042E9E6B280C2FDB00116ABE /* App */,
 				047F141D282A83C600F2C42F /* MainScreen */,
 				047F1422282A849900F2C42F /* ScreenRegist */,
-				043F7AAD280F2AA3007353E2 /* ScreenLogIn */,
 				047F1428282A920B00F2C42F /* ScreenGreetings */,
 				04517354282C38B500CE67DA /* ScreenStageHardening */,
 				042E9E60280C1ECA00116ABE /* Assets.xcassets */,
@@ -139,17 +125,6 @@
 				042E9E59280C1EC900116ABE /* SceneDelegate.swift */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		043F7AAD280F2AA3007353E2 /* ScreenLogIn */ = {
-			isa = PBXGroup;
-			children = (
-				042A01D12816D06F008E508E /* ScreenLogInModel */,
-				0462FF28282034D300195314 /* ScreenLogInView */,
-				047F1425282A85A300F2C42F /* ScreenLogInCoordinator */,
-				04823D21281D666A00D7998C /* ScreenLogInController */,
-			);
-			path = ScreenLogIn;
 			sourceTree = "<group>";
 		};
 		0440D29A28198029005A7E26 /* ScreenRegistrationController */ = {
@@ -209,14 +184,6 @@
 				0451735B282C394300CE67DA /* ScreenStageHardeningController.swift */,
 			);
 			path = ScreenStageHardening;
-			sourceTree = "<group>";
-		};
-		0462FF28282034D300195314 /* ScreenLogInView */ = {
-			isa = PBXGroup;
-			children = (
-				0462FF29282034F400195314 /* ScreenLogInView.swift */,
-			);
-			path = ScreenLogInView;
 			sourceTree = "<group>";
 		};
 		047F141D282A83C600F2C42F /* MainScreen */ = {
@@ -289,14 +256,6 @@
 			path = ScreenRegistrationCoordinator;
 			sourceTree = "<group>";
 		};
-		047F1425282A85A300F2C42F /* ScreenLogInCoordinator */ = {
-			isa = PBXGroup;
-			children = (
-				04823D22281D66B400D7998C /* ScreenLogInCoordinator.swift */,
-			);
-			path = ScreenLogInCoordinator;
-			sourceTree = "<group>";
-		};
 		047F1428282A920B00F2C42F /* ScreenGreetings */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,14 +265,6 @@
 				04517353282C389C00CE67DA /* ScreenGreetingsController */,
 			);
 			path = ScreenGreetings;
-			sourceTree = "<group>";
-		};
-		04823D21281D666A00D7998C /* ScreenLogInController */ = {
-			isa = PBXGroup;
-			children = (
-				04823D24281D66CC00D7998C /* ScreenLogInViewController.swift */,
-			);
-			path = ScreenLogInController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,7 +341,6 @@
 				047F142C282A923000F2C42F /* ScreenGreetingsView.swift in Sources */,
 				04517358282C391B00CE67DA /* ScreenStageHardeningView.swift in Sources */,
 				043F7AAF280F2AB7007353E2 /* MainScreenView.swift in Sources */,
-				0462FF2A282034F400195314 /* ScreenLogInView.swift in Sources */,
 				042E9E5C280C1EC900116ABE /* MainScreenViewController.swift in Sources */,
 				047F1427282A8F9600F2C42F /* ScreenRegistrationModel.swift in Sources */,
 				0440D29C2819807A005A7E26 /* ScreenRegistrationCoordinator.swift in Sources */,
@@ -401,10 +351,8 @@
 				0451735C282C394300CE67DA /* ScreenStageHardeningController.swift in Sources */,
 				047F1430282A925000F2C42F /* ScreenGreetingsViewController.swift in Sources */,
 				042E9E5A280C1EC900116ABE /* SceneDelegate.swift in Sources */,
-				04823D25281D66CC00D7998C /* ScreenLogInViewController.swift in Sources */,
 				0440D29E28198090005A7E26 /* ScreenRegistrationViewController.swift in Sources */,
 				047F142E282A924100F2C42F /* ScreenGreetingsCoordinator.swift in Sources */,
-				04823D23281D66B400D7998C /* ScreenLogInCoordinator.swift in Sources */,
 				042A01CC2816B5BD008E508E /* Protocol.swift in Sources */,
 				042A01CE2816B61F008E508E /* AppCoordinator.swift in Sources */,
 				047F142A282A922000F2C42F /* ScreenGreetingsModel.swift in Sources */,
