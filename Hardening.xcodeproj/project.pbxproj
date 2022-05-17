@@ -20,6 +20,10 @@
 		0440D29C2819807A005A7E26 /* ScreenRegistrationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440D29B2819807A005A7E26 /* ScreenRegistrationCoordinator.swift */; };
 		0440D29E28198090005A7E26 /* ScreenRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440D29D28198090005A7E26 /* ScreenRegistrationViewController.swift */; };
 		0440D2A1281980F0005A7E26 /* ScreenRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440D2A0281980F0005A7E26 /* ScreenRegistrationView.swift */; };
+		044E1F0E283225AF001181B1 /* FirstStageHardeningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E1F0D283225AF001181B1 /* FirstStageHardeningModel.swift */; };
+		044E1F10283225C2001181B1 /* FirstStageHardeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E1F0F283225C2001181B1 /* FirstStageHardeningView.swift */; };
+		044E1F12283225D6001181B1 /* FirstStageHardeningCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E1F11283225D6001181B1 /* FirstStageHardeningCoordinator.swift */; };
+		044E1F14283225E7001181B1 /* FirstStageHardeningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E1F13283225E7001181B1 /* FirstStageHardeningController.swift */; };
 		04517356282C38FD00CE67DA /* ScreenStageHardeningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04517355282C38FD00CE67DA /* ScreenStageHardeningModel.swift */; };
 		04517358282C391B00CE67DA /* ScreenStageHardeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04517357282C391B00CE67DA /* ScreenStageHardeningView.swift */; };
 		0451735A282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04517359282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift */; };
@@ -47,6 +51,10 @@
 		0440D29B2819807A005A7E26 /* ScreenRegistrationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRegistrationCoordinator.swift; sourceTree = "<group>"; };
 		0440D29D28198090005A7E26 /* ScreenRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRegistrationViewController.swift; sourceTree = "<group>"; };
 		0440D2A0281980F0005A7E26 /* ScreenRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRegistrationView.swift; sourceTree = "<group>"; };
+		044E1F0D283225AF001181B1 /* FirstStageHardeningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStageHardeningModel.swift; sourceTree = "<group>"; };
+		044E1F0F283225C2001181B1 /* FirstStageHardeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStageHardeningView.swift; sourceTree = "<group>"; };
+		044E1F11283225D6001181B1 /* FirstStageHardeningCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStageHardeningCoordinator.swift; sourceTree = "<group>"; };
+		044E1F13283225E7001181B1 /* FirstStageHardeningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStageHardeningController.swift; sourceTree = "<group>"; };
 		04517355282C38FD00CE67DA /* ScreenStageHardeningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStageHardeningModel.swift; sourceTree = "<group>"; };
 		04517357282C391B00CE67DA /* ScreenStageHardeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStageHardeningView.swift; sourceTree = "<group>"; };
 		04517359282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStageHardeningCoordinator.swift; sourceTree = "<group>"; };
@@ -111,6 +119,9 @@
 				047F1422282A849900F2C42F /* ScreenRegist */,
 				047F1428282A920B00F2C42F /* ScreenGreetings */,
 				04517354282C38B500CE67DA /* ScreenStageHardening */,
+				044E1F0628322312001181B1 /* FirstStageHardening */,
+				044E1F08283223C8001181B1 /* SecondStageHardening */,
+				044E1F09283223D9001181B1 /* ThirdStageHardening */,
 				042E9E60280C1ECA00116ABE /* Assets.xcassets */,
 				042E9E62280C1ECA00116ABE /* LaunchScreen.storyboard */,
 				042E9E65280C1ECA00116ABE /* Info.plist */,
@@ -141,6 +152,95 @@
 				0440D2A0281980F0005A7E26 /* ScreenRegistrationView.swift */,
 			);
 			path = ScreenRegistrationView;
+			sourceTree = "<group>";
+		};
+		044E1F01283221A5001181B1 /* ScreenStageHardeningModel */ = {
+			isa = PBXGroup;
+			children = (
+				04517355282C38FD00CE67DA /* ScreenStageHardeningModel.swift */,
+			);
+			path = ScreenStageHardeningModel;
+			sourceTree = "<group>";
+		};
+		044E1F02283221C4001181B1 /* ScreenStageHardeningView */ = {
+			isa = PBXGroup;
+			children = (
+				04517357282C391B00CE67DA /* ScreenStageHardeningView.swift */,
+			);
+			path = ScreenStageHardeningView;
+			sourceTree = "<group>";
+		};
+		044E1F03283221DB001181B1 /* ScreenStageHardeningCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				04517359282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift */,
+			);
+			path = ScreenStageHardeningCoordinator;
+			sourceTree = "<group>";
+		};
+		044E1F04283221EC001181B1 /* ScreenStageHardeningController */ = {
+			isa = PBXGroup;
+			children = (
+				0451735B282C394300CE67DA /* ScreenStageHardeningController.swift */,
+			);
+			path = ScreenStageHardeningController;
+			sourceTree = "<group>";
+		};
+		044E1F0628322312001181B1 /* FirstStageHardening */ = {
+			isa = PBXGroup;
+			children = (
+				044E1F07283223C2001181B1 /* FirstStageHardeningModel */,
+				044E1F0B28322542001181B1 /* FirstStageHardeningView */,
+				044E1F0A2832253D001181B1 /* FirstStageHardeningCoordinator */,
+				044E1F0C2832256C001181B1 /* FirstStageHardeningController */,
+			);
+			path = FirstStageHardening;
+			sourceTree = "<group>";
+		};
+		044E1F07283223C2001181B1 /* FirstStageHardeningModel */ = {
+			isa = PBXGroup;
+			children = (
+				044E1F0D283225AF001181B1 /* FirstStageHardeningModel.swift */,
+			);
+			path = FirstStageHardeningModel;
+			sourceTree = "<group>";
+		};
+		044E1F08283223C8001181B1 /* SecondStageHardening */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SecondStageHardening;
+			sourceTree = "<group>";
+		};
+		044E1F09283223D9001181B1 /* ThirdStageHardening */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThirdStageHardening;
+			sourceTree = "<group>";
+		};
+		044E1F0A2832253D001181B1 /* FirstStageHardeningCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				044E1F11283225D6001181B1 /* FirstStageHardeningCoordinator.swift */,
+			);
+			path = FirstStageHardeningCoordinator;
+			sourceTree = "<group>";
+		};
+		044E1F0B28322542001181B1 /* FirstStageHardeningView */ = {
+			isa = PBXGroup;
+			children = (
+				044E1F0F283225C2001181B1 /* FirstStageHardeningView.swift */,
+			);
+			path = FirstStageHardeningView;
+			sourceTree = "<group>";
+		};
+		044E1F0C2832256C001181B1 /* FirstStageHardeningController */ = {
+			isa = PBXGroup;
+			children = (
+				044E1F13283225E7001181B1 /* FirstStageHardeningController.swift */,
+			);
+			path = FirstStageHardeningController;
 			sourceTree = "<group>";
 		};
 		04517350282C387100CE67DA /* ScreenGreetingsModel */ = {
@@ -178,10 +278,10 @@
 		04517354282C38B500CE67DA /* ScreenStageHardening */ = {
 			isa = PBXGroup;
 			children = (
-				04517355282C38FD00CE67DA /* ScreenStageHardeningModel.swift */,
-				04517357282C391B00CE67DA /* ScreenStageHardeningView.swift */,
-				04517359282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift */,
-				0451735B282C394300CE67DA /* ScreenStageHardeningController.swift */,
+				044E1F01283221A5001181B1 /* ScreenStageHardeningModel */,
+				044E1F02283221C4001181B1 /* ScreenStageHardeningView */,
+				044E1F03283221DB001181B1 /* ScreenStageHardeningCoordinator */,
+				044E1F04283221EC001181B1 /* ScreenStageHardeningController */,
 			);
 			path = ScreenStageHardening;
 			sourceTree = "<group>";
@@ -342,14 +442,18 @@
 				04517358282C391B00CE67DA /* ScreenStageHardeningView.swift in Sources */,
 				043F7AAF280F2AB7007353E2 /* MainScreenView.swift in Sources */,
 				042E9E5C280C1EC900116ABE /* MainScreenViewController.swift in Sources */,
+				044E1F10283225C2001181B1 /* FirstStageHardeningView.swift in Sources */,
 				047F1427282A8F9600F2C42F /* ScreenRegistrationModel.swift in Sources */,
 				0440D29C2819807A005A7E26 /* ScreenRegistrationCoordinator.swift in Sources */,
 				04517356282C38FD00CE67DA /* ScreenStageHardeningModel.swift in Sources */,
+				044E1F0E283225AF001181B1 /* FirstStageHardeningModel.swift in Sources */,
 				042E9E58280C1EC900116ABE /* AppDelegate.swift in Sources */,
 				0451735A282C392F00CE67DA /* ScreenStageHardeningCoordinator.swift in Sources */,
 				0440D2A1281980F0005A7E26 /* ScreenRegistrationView.swift in Sources */,
 				0451735C282C394300CE67DA /* ScreenStageHardeningController.swift in Sources */,
+				044E1F14283225E7001181B1 /* FirstStageHardeningController.swift in Sources */,
 				047F1430282A925000F2C42F /* ScreenGreetingsViewController.swift in Sources */,
+				044E1F12283225D6001181B1 /* FirstStageHardeningCoordinator.swift in Sources */,
 				042E9E5A280C1EC900116ABE /* SceneDelegate.swift in Sources */,
 				0440D29E28198090005A7E26 /* ScreenRegistrationViewController.swift in Sources */,
 				047F142E282A924100F2C42F /* ScreenGreetingsCoordinator.swift in Sources */,

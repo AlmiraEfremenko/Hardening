@@ -20,5 +20,8 @@ class ScreenStageHardeningController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .blue
         self.view = ScreenStageHardeningView()
+        screenStageHardeningView?.openFirstStageHardening = { [weak self] in
+            self?.coordinator?.openStageFirstHardening()
+        }
     }
 }
