@@ -13,14 +13,24 @@ class ScreenStageHardeningView: UIView {
     
     var screenStageHardeningModel = ScreenStageHardeningModel.data
  
-    private lazy var title = configureText(text: screenStageHardeningModel.title, ofSize: 28, weight: .bold)
+    private lazy var title = configureText(text: screenStageHardeningModel.title,
+                                           ofSize: 28,
+                                           weight: .bold,
+                                           color: .black)
     private lazy var textAboutHardening = configureText(text: screenStageHardeningModel.textAboutHardening,
                                                         ofSize: 20,
-                                                        weight: .medium)
+                                                        weight: .medium,
+                                                        color: .white)
     
-    private lazy var buttonStageOne = configuraButtonStageHardening(text: "Этап 1", action: #selector(tapStageOneHardening))
-    private lazy var buttonStageTwo = configuraButtonStageHardening(text: "Этап 2", action: #selector(tapStageTwoHardening))
-    private lazy var buttonStageThree = configuraButtonStageHardening(text: "Этап 3", action: #selector(tapStageThreeHardening))
+    private lazy var buttonStageOne = configuraButtonStageHardening(text: "Этап 1",
+                                                                    action: #selector(tapStageOneHardening),
+                                                                    color: UIColor(red: 11/255.0, green: 220/255, blue: 248/255.0, alpha: 1.0))
+    private lazy var buttonStageTwo = configuraButtonStageHardening(text: "Этап 2",
+                                                                    action: #selector(tapStageTwoHardening),
+                                                                    color: .systemGray4)
+    private lazy var buttonStageThree = configuraButtonStageHardening(text: "Этап 3",
+                                                                      action: #selector(tapStageThreeHardening),
+                                                                      color: .systemGray4)
     
     private lazy var stackView: UIStackView = {
        var stackView = UIStackView()
@@ -29,6 +39,16 @@ class ScreenStageHardeningView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    
+    private lazy var viewForTextHardening: UIView = {
+        var view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 30
+        view.backgroundColor = UIColor(red: 103/255.0, green: 110/255, blue: 232/255.0, alpha: 0.8)
+        return view
+    }()
+    
+    var openTabBarHardening: (() -> Void)?
     
     // MARK: - Init
     
@@ -50,7 +70,8 @@ class ScreenStageHardeningView: UIView {
         stackView.addArrangedSubview(buttonStageOne)
         stackView.addArrangedSubview(buttonStageTwo)
         addSubview(buttonStageThree)
-        addSubview(textAboutHardening)
+        addSubview(viewForTextHardening)
+        viewForTextHardening.addSubview(textAboutHardening)
     }
     
     // MARK: - Layout
@@ -64,7 +85,7 @@ class ScreenStageHardeningView: UIView {
             title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 80),
             title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -80),
             
-            stackView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 50),
+            stackView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 40),
             stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             buttonStageOne.heightAnchor.constraint(equalToConstant: 120),
@@ -78,16 +99,22 @@ class ScreenStageHardeningView: UIView {
             buttonStageThree.heightAnchor.constraint(equalToConstant: 120),
             buttonStageThree.widthAnchor.constraint(equalToConstant: 120),
             
-            textAboutHardening.centerXAnchor.constraint(equalTo: centerXAnchor),
-            textAboutHardening.topAnchor.constraint(equalTo: buttonStageThree.bottomAnchor, constant: 70),
-            textAboutHardening.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            textAboutHardening.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
+            
+            viewForTextHardening.centerXAnchor.constraint(equalTo: centerXAnchor),
+            viewForTextHardening.topAnchor.constraint(equalTo: buttonStageThree.bottomAnchor, constant: 40),
+            viewForTextHardening.heightAnchor.constraint(equalToConstant: 170),
+            viewForTextHardening.widthAnchor.constraint(equalToConstant: 320),
+            
+            textAboutHardening.centerXAnchor.constraint(equalTo: viewForTextHardening.centerXAnchor),
+            textAboutHardening.centerYAnchor.constraint(equalTo: viewForTextHardening.centerYAnchor),
+            textAboutHardening.leadingAnchor.constraint(equalTo: viewForTextHardening.leadingAnchor, constant: 10),
+            textAboutHardening.trailingAnchor.constraint(equalTo: viewForTextHardening.trailingAnchor, constant: -10)
         ])
     }
     
-    private func configuraButtonStageHardening(text: String, action: Selector) -> UIButton {
+    private func configuraButtonStageHardening(text: String, action: Selector, color: UIColor) -> UIButton {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/150.0, blue: 255.0/255.0, alpha: 1.0)
+        button.backgroundColor = color
         button.setTitle(text, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 120/2
@@ -97,21 +124,19 @@ class ScreenStageHardeningView: UIView {
         return button
     }
     
-    private func configureText(text: String, ofSize: CGFloat, weight: UIFont.Weight) -> UILabel {
+    private func configureText(text: String, ofSize: CGFloat, weight: UIFont.Weight, color: UIColor) -> UILabel {
         let label = UILabel()
          label.font = .systemFont(ofSize: ofSize, weight: weight)
          label.text = text
          label.translatesAutoresizingMaskIntoConstraints = false
          label.numberOfLines = 0
          label.textAlignment = .center
-         label.textColor = .black
+         label.textColor = color
          return label
     }
     
-    var openFirstStageHardening: (() -> Void)?
-    
     @objc func tapStageOneHardening() {
-        openFirstStageHardening?()
+        openTabBarHardening?()
     }
     
     @objc func tapStageTwoHardening() {

@@ -25,7 +25,8 @@ class ScreenGreetingsView: UIView {
     
     private lazy var imageHardening: UIImageView = {
         var image = UIImageView()
-        image.image = UIImage(named: "закаливание")
+        image.image = UIImage(named: "смешно")
+        image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -35,7 +36,7 @@ class ScreenGreetingsView: UIView {
         label.text = screenGreetingsModel.questionsAboutHealth
         label.numberOfLines = 0
         label.addInterlineSpacing()
-        label.font = .systemFont(ofSize: 20, weight: .regular)
+        label.font = .systemFont(ofSize: 20, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -88,7 +89,7 @@ class ScreenGreetingsView: UIView {
         buttonProceed.setTitle("Продолжить", for: .normal)
         buttonProceed.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
         buttonProceed.setTitleColor(.white, for: .normal)
-        buttonProceed.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/150.0, blue: 255.0/255.0, alpha: 1.0)
+        buttonProceed.backgroundColor = UIColor(red: 11/255.0, green: 220/255, blue: 248/255.0, alpha: 1.0)
         buttonProceed.addTarget(self, action: #selector(followToScreenStageHardening), for: .touchUpInside)
         buttonProceed.layer.cornerRadius = 18
         buttonProceed.translatesAutoresizingMaskIntoConstraints = false
@@ -130,10 +131,12 @@ class ScreenGreetingsView: UIView {
             labelGreetings.centerXAnchor.constraint(equalTo: centerXAnchor),
             labelGreetings.topAnchor.constraint(equalTo: topAnchor, constant: 120),
             
-            imageHardening.centerXAnchor.constraint(equalTo: centerXAnchor),
+           // imageHardening.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageHardening.topAnchor.constraint(equalTo: labelGreetings.bottomAnchor, constant: 30),
             imageHardening.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             imageHardening.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            imageHardening.heightAnchor.constraint(equalToConstant: 200),
+            //imageHardening.widthAnchor.constraint(equalToConstant: 50),
             
             answerQuestionsAboutHealth.centerXAnchor.constraint(equalTo: centerXAnchor),
             answerQuestionsAboutHealth.topAnchor.constraint(equalTo: imageHardening.bottomAnchor, constant: 30),
@@ -191,7 +194,7 @@ class ScreenGreetingsView: UIView {
         
         if isChoiceCheckBox {
             buttonCheckAboutHealth.setImage(UIImage(systemName: "checkmark")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-            buttonCheckAboutHealth.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/150.0, blue: 255.0/255.0, alpha: 1.0)
+            buttonCheckAboutHealth.backgroundColor = UIColor(red: 11/255.0, green: 220/255, blue: 248/255.0, alpha: 1.0)
         } else {
             buttonCheckAboutHealth.setImage(UIImage(systemName: ""), for: .normal)
             buttonCheckAboutHealth.backgroundColor = .systemGray5

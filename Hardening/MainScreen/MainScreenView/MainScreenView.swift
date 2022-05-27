@@ -30,7 +30,7 @@ class MainScreenView: UIView {
     private lazy var textAboutCostRight = configureTextAboutCost(text: data.textAboutCostRight, textColor: .white)
     private lazy var textAboutRateLeft = configureTextAboutRate(text: data.textAboutRateLeft, textColor: .gray)
     private lazy var textAboutRateRight = configureTextAboutRate(text: data.textAboutRateRight, textColor: .systemGray4)
-    private lazy var viewCardLeft = configureViewCard(color: .lightGray.withAlphaComponent(0.5))
+    private lazy var viewCardLeft = configureViewCard(color: .lightGray.withAlphaComponent(0.3))
     private lazy var viewCardRight = configureViewCard(color: .blue)
     private lazy var checkBoxLeft = configureButton()
     private lazy var checkBoxRight = configureButton()
@@ -41,7 +41,7 @@ class MainScreenView: UIView {
         buttonProceed.setTitle("Продолжить", for: .normal)
         buttonProceed.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
         buttonProceed.setTitleColor(.white, for: .normal)
-        buttonProceed.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/150.0, blue: 255.0/255.0, alpha: 1.0)
+        buttonProceed.backgroundColor = UIColor(red: 11/255.0, green: 220/255, blue: 248/255.0, alpha: 1.0)
         //buttonProceed.addTarget(self, action: #selector(tapButtonRegistration), for: .touchUpInside)
         buttonProceed.layer.cornerRadius = 18
         buttonProceed.translatesAutoresizingMaskIntoConstraints = false
@@ -66,18 +66,18 @@ class MainScreenView: UIView {
         return stackView
     }()
     
-    private lazy var buttonRegistration = configureButtonsRegistrationOrLogin(text: "Зарегистрироваться", action: Selector(("tapButtonRegistration")))
+    private lazy var buttonRegistration = configureButtonsRegistrationOrLogin(text: "Регистрация", action: Selector(("tapButtonRegistration")))
     
-    private lazy var buttonLogIn = configureButtonsRegistrationOrLogin(text: "Войти", action: Selector(("tapButtonLogIn")))
+//    private lazy var buttonLogIn = configureButtonsRegistrationOrLogin(text: "Войти", action: Selector(("tapButtonLogIn")))
     
-    private lazy var textAboutSubscription: UILabel = {
-        var textAboutSubscription = UILabel()
-        textAboutSubscription.font = .systemFont(ofSize: 20, weight: .light)
-        textAboutSubscription.textColor = .black
-        textAboutSubscription.text = "или"
-        textAboutSubscription.translatesAutoresizingMaskIntoConstraints = false
-        return textAboutSubscription
-    }()
+//    private lazy var textAboutSubscription: UILabel = {
+//        var textAboutSubscription = UILabel()
+//        textAboutSubscription.font = .systemFont(ofSize: 20, weight: .light)
+//        textAboutSubscription.textColor = .black
+//        textAboutSubscription.text = "или"
+//        textAboutSubscription.translatesAutoresizingMaskIntoConstraints = false
+//        return textAboutSubscription
+//    }()
     
     // MARK: - Init
     
@@ -110,9 +110,10 @@ class MainScreenView: UIView {
         addSubview(buttonProceed)
         addSubview(textCommentAboutSubscription)
         addSubview(stackViewButton)
-        stackViewButton.addArrangedSubview(buttonRegistration)
-        stackViewButton.addArrangedSubview(textAboutSubscription)
-        stackViewButton.addArrangedSubview(buttonLogIn)
+        addSubview(buttonRegistration)
+        //stackViewButton.addArrangedSubview(buttonRegistration)
+       // stackViewButton.addArrangedSubview(textAboutSubscription)
+        //stackViewButton.addArrangedSubview(buttonLogIn)
     }
     
     // MARK: - Layout
@@ -174,9 +175,12 @@ class MainScreenView: UIView {
         
             textCommentAboutSubscription.centerXAnchor.constraint(equalTo: centerXAnchor),
             textCommentAboutSubscription.topAnchor.constraint(equalTo: buttonProceed.bottomAnchor, constant: 15),
+            
+            buttonRegistration.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonRegistration.topAnchor.constraint(equalTo: buttonProceed.bottomAnchor, constant: 70)
            
-            stackViewButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            stackViewButton.topAnchor.constraint(equalTo: buttonProceed.bottomAnchor, constant: 70),
+//            stackViewButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            stackViewButton.topAnchor.constraint(equalTo: buttonProceed.bottomAnchor, constant: 70),
         ])
     }
     
@@ -205,9 +209,9 @@ class MainScreenView: UIView {
         registrationAction?()
     }
     
-    @objc func tapButtonLogIn() {
-        logIn?()
-    }
+//    @objc func tapButtonLogIn() {
+//        logIn?()
+//    }
     
     // MARK: - Add function labels in card
     
@@ -243,6 +247,7 @@ class MainScreenView: UIView {
         return label
     }
     
+    //Здесь если что переделать
     private func configureButtonsRegistrationOrLogin(text: String, action: Selector) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(text, for: .normal)

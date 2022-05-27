@@ -16,11 +16,17 @@ class FirstStageHardeningController: UIViewController {
     }
 
    var coordinator: FirstStageHardeningCoordinator?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.view = FirstStageHardeningView()
-        
+        tapStartMarkHardening()
+    }
+    
+    private func tapStartMarkHardening() {
+        firstStageHardeningView?.openFirstStageMark = { [weak self] in
+            self?.coordinator?.openStageMark()
+        }
     }
 }

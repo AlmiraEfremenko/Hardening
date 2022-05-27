@@ -14,6 +14,6 @@ struct ScreenStageHardeningModel {
 
 extension ScreenStageHardeningModel {
     
-    static var data = ScreenStageHardeningModel(title: "Выбери этап закаливания",
+    static var data = ScreenStageHardeningModel(title: "Этапы закаливания",
                                                 textAboutHardening: "Закаливание – система профилактических процедур, направленная на укрепление организма.")
 }

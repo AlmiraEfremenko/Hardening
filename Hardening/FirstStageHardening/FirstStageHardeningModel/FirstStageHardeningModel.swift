@@ -17,7 +17,7 @@ struct FirstStageHardeningModel {
 extension FirstStageHardeningModel {
     
     static var data = FirstStageHardeningModel(title: "Этап 1",
-                                               walkBarefoot: "Хождение босиком дома",
-                                               sleepOpenWindow: "Сон с открытым окном",
-                                               washingColdWater: "Умывание холодной водой утром и вечером")
+                                               walkBarefoot: "1. Хождение босиком дома",
+                                               sleepOpenWindow: "2. Сон с открытым окном",
+                                               washingColdWater: "3. Умывание холодной водой утром и вечером")
 }
