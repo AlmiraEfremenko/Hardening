@@ -8,7 +8,7 @@
 import UIKit
 
 protocol OpenStageHardening {
-    func openStageFirstHardening()
+    func openTapBar()
 }
 
 class ScreenStageHardeningCoordinator: Coordinator, OpenStageHardening {
@@ -25,8 +25,8 @@ class ScreenStageHardeningCoordinator: Coordinator, OpenStageHardening {
         navigationController.pushViewController(openScreenStageHardeningController, animated: false)
     }
     
-    func openStageFirstHardening() {
-        let firstStageHardeningCoordinator = FirstStageHardeningCoordinator(navigationController: navigationController)
-        firstStageHardeningCoordinator.start()
+    func openTapBar() {
+        let tabBarCoordinator = TabBarCoordinator(navigationController: navigationController)
+        tabBarCoordinator.start()
     }
 }
