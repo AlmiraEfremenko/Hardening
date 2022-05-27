@@ -8,7 +8,11 @@
 import Foundation
 import UIKit
 
-class FirstStageHardeningCoordinator: Coordinator {
+protocol OpenStageMark {
+    func openStageMark()
+}
+
+class FirstStageHardeningCoordinator: Coordinator, OpenStageMark {
     
     var navigationController: UINavigationController
     
@@ -17,8 +21,14 @@ class FirstStageHardeningCoordinator: Coordinator {
     }
     
     func start() {
-        let firstStageHardeningCoordinator = FirstStageHardeningController()
-        firstStageHardeningCoordinator.coordinator = self
-        navigationController.pushViewController(firstStageHardeningCoordinator, animated: false)
+        let firstStageHardeningController = FirstStageHardeningController()
+        firstStageHardeningController.coordinator = self
+        navigationController.pushViewController(firstStageHardeningController, animated: true)
+    }
+    
+    func openStageMark() {
+        
+        let firstStageMarkCoordinator = FirstStageMarkCoordinator(navigationController: navigationController)
+        firstStageMarkCoordinator.start()
     }
 }
