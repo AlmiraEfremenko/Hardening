@@ -59,7 +59,7 @@ class ScreenRegistrationView: UIView {
         buttonProceed.setTitle("Продолжить", for: .normal)
         buttonProceed.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
         buttonProceed.setTitleColor(.white, for: .normal)
-        buttonProceed.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/150.0, blue: 255.0/255.0, alpha: 1.0)
+        buttonProceed.backgroundColor = UIColor(red: 11/255.0, green: 220/255, blue: 248/255.0, alpha: 1.0)
         buttonProceed.addTarget(self, action: #selector(tapButtonRegistration), for: .touchUpInside)
         buttonProceed.layer.cornerRadius = 18
         buttonProceed.translatesAutoresizingMaskIntoConstraints = false
