@@ -5,4 +5,19 @@
 //  Created by MAC on 21.05.2022.
 //
 
-import Foundation
+import UIKit
+
+class ProfileCoordinator: Coordinator {
+    
+    var navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    func start() {
+        let profileController = ProfileController()
+        profileController.coordinator = self
+        navigationController.pushViewController(profileController, animated: true)
+    }
+}
