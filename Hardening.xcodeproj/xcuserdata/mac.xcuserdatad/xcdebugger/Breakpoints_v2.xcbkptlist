@@ -222,8 +222,8 @@
             filePath = "Hardening/FirstStageHardening/FirstStageHardeningView/FirstStageMarkView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "tapButtonSecondStage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -238,8 +238,8 @@
             filePath = "Hardening/FirstStageHardening/FirstStageHardeningView/FirstStageHardeningView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "tapButtonStart()"
             landmarkType = "7">
          </BreakpointContent>

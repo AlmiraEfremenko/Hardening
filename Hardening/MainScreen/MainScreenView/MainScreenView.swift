@@ -29,9 +29,9 @@ class MainScreenView: UIView {
     private lazy var textAboutCostLeft = configureTextAboutCost(text: data.textAboutCostLeft, textColor: .black)
     private lazy var textAboutCostRight = configureTextAboutCost(text: data.textAboutCostRight, textColor: .white)
     private lazy var textAboutRateLeft = configureTextAboutRate(text: data.textAboutRateLeft, textColor: .gray)
-    private lazy var textAboutRateRight = configureTextAboutRate(text: data.textAboutRateRight, textColor: .systemGray4)
+    private lazy var textAboutRateRight = configureTextAboutRate(text: data.textAboutRateRight, textColor: .white)
     private lazy var viewCardLeft = configureViewCard(color: .lightGray.withAlphaComponent(0.3))
-    private lazy var viewCardRight = configureViewCard(color: .blue)
+    private lazy var viewCardRight = configureViewCard(color: UIColor(red: 246.0/255.0, green: 88.0/150.0, blue: 40.0/255.0, alpha: 1.0))
     private lazy var checkBoxLeft = configureButton()
     private lazy var checkBoxRight = configureButton()
     private lazy var isChoiceCheckBox = false
@@ -40,8 +40,10 @@ class MainScreenView: UIView {
         var buttonProceed = UIButton(type: .system)
         buttonProceed.setTitle("Продолжить", for: .normal)
         buttonProceed.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
-        buttonProceed.setTitleColor(.white, for: .normal)
-        buttonProceed.backgroundColor = UIColor(red: 11/255.0, green: 220/255, blue: 248/255.0, alpha: 1.0)
+        buttonProceed.setTitleColor(UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0), for: .normal)
+        buttonProceed.backgroundColor = .white
+        buttonProceed.layer.borderColor = UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0).cgColor
+        buttonProceed.layer.borderWidth = 3
         //buttonProceed.addTarget(self, action: #selector(tapButtonRegistration), for: .touchUpInside)
         buttonProceed.layer.cornerRadius = 18
         buttonProceed.translatesAutoresizingMaskIntoConstraints = false
@@ -191,11 +193,11 @@ class MainScreenView: UIView {
         isChoiceCheckBox = !isChoiceCheckBox
         
         if isChoiceCheckBox {
-            checkBoxLeft.setImage(UIImage(systemName: "checkmark"), for: .normal)
+            checkBoxLeft.setImage(UIImage(systemName: "checkmark")?.withTintColor(UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0), renderingMode: .alwaysOriginal), for: .normal)
             checkBoxRight.setImage(UIImage(systemName: ""), for: .normal)
         } else {
             checkBoxLeft.setImage(UIImage(systemName: ""), for: .normal)
-            checkBoxRight.setImage(UIImage(systemName: "checkmark"), for: .normal)
+            checkBoxRight.setImage(UIImage(systemName: "checkmark")?.withTintColor(UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0), renderingMode: .alwaysOriginal), for: .normal)
         }
     }
     

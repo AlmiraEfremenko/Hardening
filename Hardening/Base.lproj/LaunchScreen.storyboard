@@ -16,21 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snowflake_1-removebg-preview" highlightedImage="snowflake_1-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="AYd-5K-yHa">
-                                <rect key="frame" x="60" y="244" width="300" height="300"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="snowflake_1-removebg-preview" highlightedImage="snowflake_1-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="AYd-5K-yHa">
+                                <rect key="frame" x="40" y="218" width="340" height="348"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="AccentColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="QHn-Qw-zaI"/>
-                                    <constraint firstAttribute="width" constant="300" id="R1T-Rd-bnZ"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.096204408300326241" green="0.22454645251597663" blue="0.46454223836820152" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="AYd-5K-yHa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="EF7-b0-a58"/>
-                            <constraint firstItem="AYd-5K-yHa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="NV7-dd-fp3"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.19606975970000001" green="0.081641726659999997" blue="0.69532087720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.086274504660000001" green="0.1019607931" blue="0.21960783" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -27,6 +27,8 @@ class ScreenGreetingsView: UIView {
         var image = UIImageView()
         image.image = UIImage(named: "смешно")
         image.contentMode = .scaleAspectFit
+        image.layer.cornerRadius = 18
+        image.layer.masksToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -88,8 +90,10 @@ class ScreenGreetingsView: UIView {
         var buttonProceed = UIButton(type: .system)
         buttonProceed.setTitle("Продолжить", for: .normal)
         buttonProceed.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
-        buttonProceed.setTitleColor(.white, for: .normal)
-        buttonProceed.backgroundColor = UIColor(red: 11/255.0, green: 220/255, blue: 248/255.0, alpha: 1.0)
+        buttonProceed.setTitleColor(UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0), for: .normal)
+        buttonProceed.backgroundColor = .white
+        buttonProceed.layer.borderColor = UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0).cgColor
+        buttonProceed.layer.borderWidth = 3
         buttonProceed.addTarget(self, action: #selector(followToScreenStageHardening), for: .touchUpInside)
         buttonProceed.layer.cornerRadius = 18
         buttonProceed.translatesAutoresizingMaskIntoConstraints = false
@@ -136,7 +140,6 @@ class ScreenGreetingsView: UIView {
             imageHardening.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             imageHardening.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             imageHardening.heightAnchor.constraint(equalToConstant: 200),
-            //imageHardening.widthAnchor.constraint(equalToConstant: 50),
             
             answerQuestionsAboutHealth.centerXAnchor.constraint(equalTo: centerXAnchor),
             answerQuestionsAboutHealth.topAnchor.constraint(equalTo: imageHardening.bottomAnchor, constant: 30),
@@ -179,7 +182,7 @@ class ScreenGreetingsView: UIView {
         
         if isChoiceCheckBox {
             buttonCheckAboutHealthHeart.setImage(UIImage(systemName: "checkmark")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-            buttonCheckAboutHealthHeart.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/150.0, blue: 255.0/255.0, alpha: 1.0)
+            buttonCheckAboutHealthHeart.backgroundColor = UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0)
         } else {
             buttonCheckAboutHealthHeart.setImage(UIImage(systemName: ""), for: .normal)
             buttonCheckAboutHealthHeart.backgroundColor = .systemGray5
@@ -194,7 +197,7 @@ class ScreenGreetingsView: UIView {
         
         if isChoiceCheckBox {
             buttonCheckAboutHealth.setImage(UIImage(systemName: "checkmark")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-            buttonCheckAboutHealth.backgroundColor = UIColor(red: 11/255.0, green: 220/255, blue: 248/255.0, alpha: 1.0)
+            buttonCheckAboutHealth.backgroundColor = UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0)
         } else {
             buttonCheckAboutHealth.setImage(UIImage(systemName: ""), for: .normal)
             buttonCheckAboutHealth.backgroundColor = .systemGray5
