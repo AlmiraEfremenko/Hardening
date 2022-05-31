@@ -48,8 +48,10 @@ class FirstStageMarkView: UIView {
         var button = UIButton(type: .system)
         button.setTitle("Перейти во 2 этап", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 11/255.0, green: 220/255, blue: 248/255.0, alpha: 1.0)
+        button.setTitleColor(UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0), for: .normal)
+        button.backgroundColor = .white
+        button.layer.borderColor = UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0).cgColor
+        button.layer.borderWidth = 3
         button.addTarget(self, action: #selector(tapButtonSecondStage), for: .touchUpInside)
         button.layer.cornerRadius = 18
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -132,7 +134,7 @@ class FirstStageMarkView: UIView {
     
     private func configuraButtonMark(text: String) -> UIButton {
         let button = UIButton(type: .system)
-        button.backgroundColor = .systemGray3
+        button.backgroundColor = UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0)
         button.setTitle(text, for: .normal)
         button.layer.cornerRadius = 40
         button.heightAnchor.constraint(equalToConstant: 80).isActive = true
@@ -158,8 +160,10 @@ class FirstStageMarkView: UIView {
     
     @objc func tapButtonMark(button: UIButton) {
         button.layer.cornerRadius = 40
-        button.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/150.0, blue: 255.0/255.0, alpha: 1.0)
-        button.setImage(UIImage(systemName: "checkmark")?.withTintColor(.white).withRenderingMode(.alwaysOriginal), for: .normal)
+        button.backgroundColor = .white
+        button.layer.borderColor = UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0).cgColor
+        button.layer.borderWidth = 3
+        button.setImage(UIImage(systemName: "checkmark")?.withTintColor(UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0)).withRenderingMode(.alwaysOriginal), for: .normal)
         button.setTitle(nil, for: .normal)
     }
     

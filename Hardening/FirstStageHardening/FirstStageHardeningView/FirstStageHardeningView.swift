@@ -40,8 +40,10 @@ class FirstStageHardeningView: UIView {
         var button = UIButton(type: .system)
         button.setTitle("Начать", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 11/255.0, green: 220/255, blue: 248/255.0, alpha: 1.0)
+        button.setTitleColor(UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0), for: .normal)
+        button.backgroundColor = .white
+        button.layer.borderColor = UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0).cgColor
+        button.layer.borderWidth = 3
         button.addTarget(self, action: #selector(tapButtonStart), for: .touchUpInside)
         button.layer.cornerRadius = 18
         button.translatesAutoresizingMaskIntoConstraints = false
