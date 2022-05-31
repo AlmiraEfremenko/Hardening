@@ -11,11 +11,31 @@ class ProfileView: UIView {
     
     // MARK: - Property
     
-    private lazy var viewColorTop = createViewColor(color: UIColor(red: 49/255.0, green: 209/150.0, blue: 234/255.0, alpha: 1.0))
-    private lazy var viewColorBottom = createViewColor(color: UIColor(red: 103/255.0, green: 112.0/150.0, blue: 233.0/255.0, alpha: 1.0))
+    private lazy var viewColorTop = createViewColor(color: UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0))
+  
+    private lazy var image: UIImageView = {
+        var image = UIImageView()
+        image.image = UIImage(systemName: "camera.circle")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        image.contentMode = .scaleAspectFit
+        image.layer.cornerRadius = 20
+        image.layer.masksToBounds = true
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
     
-    
-    
+    private lazy var buttonSave: UIButton = {
+        var button = UIButton(type: .system)
+        button.setTitle("Сохранить", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
+        button.setTitleColor(UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0), for: .normal)
+        button.backgroundColor = .white
+        button.layer.borderColor = UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0).cgColor
+        button.layer.borderWidth = 3
+        //buttonProceed.addTarget(self, action: #selector(tapButtonRegistration), for: .touchUpInside)
+        button.layer.cornerRadius = 18
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     // MARK: - Init
     
@@ -33,7 +53,8 @@ class ProfileView: UIView {
     
     private func setupHierarchy() {
         addSubview(viewColorTop)
-        //addSubview(viewColorBottom)
+        viewColorTop.addSubview(image)
+        addSubview(buttonSave)
     }
     
     // MARK: - Layout
@@ -45,8 +66,17 @@ class ProfileView: UIView {
             viewColorTop.topAnchor.constraint(equalTo: topAnchor),
             viewColorTop.leadingAnchor.constraint(equalTo: leadingAnchor),
             viewColorTop.trailingAnchor.constraint(equalTo: trailingAnchor),
-            viewColorTop.bottomAnchor.constraint(equalTo: centerYAnchor),
+            viewColorTop.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -50),
             
+            image.centerXAnchor.constraint(equalTo: viewColorTop.centerXAnchor),
+            image.bottomAnchor.constraint(equalTo: viewColorTop.bottomAnchor, constant: -50),
+            image.heightAnchor.constraint(equalToConstant: 150),
+            image.widthAnchor.constraint(equalToConstant: 150),
+            
+            buttonSave.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonSave.topAnchor.constraint(equalTo: viewColorTop.bottomAnchor,constant: 290),
+            buttonSave.heightAnchor.constraint(equalToConstant: 55),
+            buttonSave.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1 / 1.1),
         ])
     }
     
@@ -56,7 +86,4 @@ class ProfileView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }
-    
-    
-    
 }
