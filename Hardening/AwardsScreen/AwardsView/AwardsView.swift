@@ -11,6 +11,8 @@ class AwardsView: UIView {
     
     // MARK: - Property
     
+    var awardsModel = AwardsModel.data
+    
     private lazy var viewColorTop: UIView = {
         var view = UIView()
         //view.layer.cornerRadius = 20
@@ -26,7 +28,7 @@ class AwardsView: UIView {
         titleLarge.textAlignment = .center
         titleLarge.textColor = .white
         titleLarge.numberOfLines = 0
-        titleLarge.text = "Твои награды🎉"
+        titleLarge.text = awardsModel.title
         titleLarge.translatesAutoresizingMaskIntoConstraints = false
         return titleLarge
     }()
@@ -42,9 +44,9 @@ class AwardsView: UIView {
     private lazy var stackViewImage = createStackView()
     private lazy var stackViewCounter = createStackViewForConter()
 
-    private lazy var labelInOneStage = createLabelStage(text: "1 этап")
-    private lazy var labelInSecondStage = createLabelStage(text: "2 этап")
-    private lazy var labelInThirdStage = createLabelStage(text: "3 этап")
+    private lazy var labelInOneStage = createLabelStage(text: awardsModel.textStage.one)
+    private lazy var labelInSecondStage = createLabelStage(text: awardsModel.textStage.two)
+    private lazy var labelInThirdStage = createLabelStage(text: awardsModel.textStage.three)
 
     private lazy var imageInOneStage = createImageStage()
     private lazy var imageInSecondStage = createImageStage()
@@ -54,9 +56,9 @@ class AwardsView: UIView {
     private lazy var viewForCounterSecond = createViewForCounter()
     private lazy var viewForCounterThird = createViewForCounter()
 
-    private lazy var labelCounterOneStage = createLabelCounter(text: "0")
-    private lazy var labelCounterSecondStage = createLabelCounter(text: "0")
-    private lazy var labelCounterThirdStage = createLabelCounter(text: "0")
+    lazy var labelCounterOneStage = createLabelCounter(text: awardsModel.textCount.one)
+    private lazy var labelCounterSecondStage = createLabelCounter(text: awardsModel.textCount.two)
+    private lazy var labelCounterThirdStage = createLabelCounter(text: awardsModel.textCount.three)
 
     // MARK: - Init
     

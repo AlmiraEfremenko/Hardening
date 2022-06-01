@@ -8,9 +8,15 @@
 import Foundation
 import UIKit
 
-class AwardsController: UIViewController {
+protocol AwardsDelegate: class {
+    func addAwards()
+}
+
+class AwardsController: UIViewController, AwardsDelegate {
     
-    private var awardsView: AwardsView? {
+    var count = 0
+    
+    var awardsView: AwardsView? {
         guard isViewLoaded else { return nil }
         return view as? AwardsView
     }
@@ -20,5 +26,10 @@ class AwardsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = AwardsView()
+    }
+    
+    func addAwards() {
+        count += 1
+        awardsView?.labelCounterOneStage.text = "\(count)"
     }
 }
