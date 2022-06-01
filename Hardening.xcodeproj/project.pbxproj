@@ -15,6 +15,14 @@
 		042A01CE2816B61F008E508E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A01CD2816B61F008E508E /* AppCoordinator.swift */; };
 		042A01D02816C260008E508E /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A01CF2816C260008E508E /* MainScreenCoordinator.swift */; };
 		042C8C4D284397EB00894902 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C8C4C284397EB00894902 /* TableViewCell.swift */; };
+		042D497928462EAF003A991C /* ThirdStageHardeningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D497828462EAF003A991C /* ThirdStageHardeningModel.swift */; };
+		042D497B28462EC5003A991C /* ThirdStageHardeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D497A28462EC5003A991C /* ThirdStageHardeningView.swift */; };
+		042D497D28462ED7003A991C /* ThirdStageHardeningCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D497C28462ED7003A991C /* ThirdStageHardeningCoordinator.swift */; };
+		042D497F28462EF1003A991C /* ThirdStageHardeningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D497E28462EF1003A991C /* ThirdStageHardeningController.swift */; };
+		042D498128464031003A991C /* ThirdStageMarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D498028464031003A991C /* ThirdStageMarkModel.swift */; };
+		042D498328464043003A991C /* ThirdStageMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D498228464043003A991C /* ThirdStageMarkView.swift */; };
+		042D49852846405A003A991C /* ThirdStageMarkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D49842846405A003A991C /* ThirdStageMarkCoordinator.swift */; };
+		042D49872846406B003A991C /* ThirdStageMarkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D49862846406B003A991C /* ThirdStageMarkController.swift */; };
 		042E9E58280C1EC900116ABE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E9E57280C1EC900116ABE /* AppDelegate.swift */; };
 		042E9E5A280C1EC900116ABE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E9E59280C1EC900116ABE /* SceneDelegate.swift */; };
 		042E9E5C280C1EC900116ABE /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E9E5B280C1EC900116ABE /* MainScreenViewController.swift */; };
@@ -59,6 +67,14 @@
 		042A01CD2816B61F008E508E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		042A01CF2816C260008E508E /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
 		042C8C4C284397EB00894902 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		042D497828462EAF003A991C /* ThirdStageHardeningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStageHardeningModel.swift; sourceTree = "<group>"; };
+		042D497A28462EC5003A991C /* ThirdStageHardeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStageHardeningView.swift; sourceTree = "<group>"; };
+		042D497C28462ED7003A991C /* ThirdStageHardeningCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStageHardeningCoordinator.swift; sourceTree = "<group>"; };
+		042D497E28462EF1003A991C /* ThirdStageHardeningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStageHardeningController.swift; sourceTree = "<group>"; };
+		042D498028464031003A991C /* ThirdStageMarkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStageMarkModel.swift; sourceTree = "<group>"; };
+		042D498228464043003A991C /* ThirdStageMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStageMarkView.swift; sourceTree = "<group>"; };
+		042D49842846405A003A991C /* ThirdStageMarkCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStageMarkCoordinator.swift; sourceTree = "<group>"; };
+		042D49862846406B003A991C /* ThirdStageMarkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStageMarkController.swift; sourceTree = "<group>"; };
 		042E9E54280C1EC900116ABE /* Hardening.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hardening.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		042E9E57280C1EC900116ABE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		042E9E59280C1EC900116ABE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -281,6 +297,14 @@
 		044E1F09283223D9001181B1 /* ThirdStageHardening */ = {
 			isa = PBXGroup;
 			children = (
+				042D497828462EAF003A991C /* ThirdStageHardeningModel.swift */,
+				042D498028464031003A991C /* ThirdStageMarkModel.swift */,
+				042D497A28462EC5003A991C /* ThirdStageHardeningView.swift */,
+				042D498228464043003A991C /* ThirdStageMarkView.swift */,
+				042D497C28462ED7003A991C /* ThirdStageHardeningCoordinator.swift */,
+				042D49842846405A003A991C /* ThirdStageMarkCoordinator.swift */,
+				042D497E28462EF1003A991C /* ThirdStageHardeningController.swift */,
+				042D49862846406B003A991C /* ThirdStageMarkController.swift */,
 			);
 			path = ThirdStageHardening;
 			sourceTree = "<group>";
@@ -576,15 +600,18 @@
 				043F7AB2280F2AD8007353E2 /* MainScreenModel.swift in Sources */,
 				048F6D99283680470057513C /* TabBarController.swift in Sources */,
 				047F142C282A923000F2C42F /* ScreenGreetingsView.swift in Sources */,
+				042D498328464043003A991C /* ThirdStageMarkView.swift in Sources */,
 				04517358282C391B00CE67DA /* ScreenStageHardeningView.swift in Sources */,
 				048F6D9728367FEA0057513C /* TabBarCoordinator.swift in Sources */,
 				044BFB602837A440009D5E4C /* FirstStageMarkView.swift in Sources */,
+				042D497928462EAF003A991C /* ThirdStageHardeningModel.swift in Sources */,
 				043F7AAF280F2AB7007353E2 /* MainScreenView.swift in Sources */,
 				042E9E5C280C1EC900116ABE /* MainScreenViewController.swift in Sources */,
 				044E1F10283225C2001181B1 /* FirstStageHardeningView.swift in Sources */,
 				047F1427282A8F9600F2C42F /* ScreenRegistrationModel.swift in Sources */,
 				0424C65B283B746C00FCAA80 /* AwardsController.swift in Sources */,
 				0440D29C2819807A005A7E26 /* ScreenRegistrationCoordinator.swift in Sources */,
+				042D497D28462ED7003A991C /* ThirdStageHardeningCoordinator.swift in Sources */,
 				04517356282C38FD00CE67DA /* ScreenStageHardeningModel.swift in Sources */,
 				044E1F0E283225AF001181B1 /* FirstStageHardeningModel.swift in Sources */,
 				042E9E58280C1EC900116ABE /* AppDelegate.swift in Sources */,
@@ -595,17 +622,22 @@
 				044BFB642837A463009D5E4C /* FirstStageMarkController.swift in Sources */,
 				044E1F14283225E7001181B1 /* FirstStageHardeningController.swift in Sources */,
 				047F1430282A925000F2C42F /* ScreenGreetingsViewController.swift in Sources */,
+				042D498128464031003A991C /* ThirdStageMarkModel.swift in Sources */,
 				049BFD0928395F200095441C /* ProfileCoordinator.swift in Sources */,
 				044E1F12283225D6001181B1 /* FirstStageHardeningCoordinator.swift in Sources */,
 				0424C65D283B747600FCAA80 /* AwardsView.swift in Sources */,
+				042D497F28462EF1003A991C /* ThirdStageHardeningController.swift in Sources */,
 				042E9E5A280C1EC900116ABE /* SceneDelegate.swift in Sources */,
 				049BFD0728395F120095441C /* ProfileView.swift in Sources */,
 				0440D29E28198090005A7E26 /* ScreenRegistrationViewController.swift in Sources */,
 				047F142E282A924100F2C42F /* ScreenGreetingsCoordinator.swift in Sources */,
+				042D49872846406B003A991C /* ThirdStageMarkController.swift in Sources */,
 				042A01CC2816B5BD008E508E /* Protocol.swift in Sources */,
 				044BFB5E2837A42B009D5E4C /* FirstStageMarkModel.swift in Sources */,
+				042D497B28462EC5003A991C /* ThirdStageHardeningView.swift in Sources */,
 				042A01CE2816B61F008E508E /* AppCoordinator.swift in Sources */,
 				047F142A282A922000F2C42F /* ScreenGreetingsModel.swift in Sources */,
+				042D49852846405A003A991C /* ThirdStageMarkCoordinator.swift in Sources */,
 				042A01D02816C260008E508E /* MainScreenCoordinator.swift in Sources */,
 				0424C659283B746000FCAA80 /* AwardsCoordinator.swift in Sources */,
 				049BFD0B28395F2E0095441C /* ProfileController.swift in Sources */,
