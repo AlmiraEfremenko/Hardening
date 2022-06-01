@@ -1,17 +1,17 @@
 //
-//  FirstStageMarkView.swift
+//  ThirdStageMarkView.swift
 //  Hardening
 //
-//  Created by MAC on 20.05.2022.
+//  Created by MAC on 31.05.2022.
 //
 
 import UIKit
 
-class FirstStageMarkView: UIView {
+class ThirdStageMarkView: UIView {
     
     // MARK: - Property
     
-    var firstStageMarkModel = FirstStageMarkModel.data
+    var thirdStageMarkModel = ThirdStageMarkModel.data
     
     private lazy var titleLarge: UILabel = {
         var titleLarge = UILabel()
@@ -19,7 +19,7 @@ class FirstStageMarkView: UIView {
         titleLarge.textAlignment = .center
         titleLarge.textColor = .black
         titleLarge.numberOfLines = 0
-        titleLarge.text = firstStageMarkModel.title
+        titleLarge.text = thirdStageMarkModel.title
         titleLarge.translatesAutoresizingMaskIntoConstraints = false
         return titleLarge
     }()
@@ -29,36 +29,20 @@ class FirstStageMarkView: UIView {
     private lazy var stackViewThree = configuraStackView()
     private lazy var stackViewFour = configuraStackView()
     
-    private lazy var buttonOne = configuraButtonMark(text: firstStageMarkModel.textButton.one)
-    private lazy var buttonTwo = configuraButtonMark(text: firstStageMarkModel.textButton.two)
-    private lazy var buttonThree = configuraButtonMark(text: firstStageMarkModel.textButton.three)
-    private lazy var buttonFour = configuraButtonMark(text: firstStageMarkModel.textButton.four)
-    private lazy var buttonFive = configuraButtonMark(text: firstStageMarkModel.textButton.five)
-    private lazy var buttonSix = configuraButtonMark(text: firstStageMarkModel.textButton.six)
-    private lazy var buttonSeven = configuraButtonMark(text: firstStageMarkModel.textButton.seven)
-    private lazy var buttonEight = configuraButtonMark(text: firstStageMarkModel.textButton.eight)
-    private lazy var buttonNine = configuraButtonMark(text: firstStageMarkModel.textButton.nine)
-    private lazy var buttonTen = configuraButtonMark(text: firstStageMarkModel.textButton.ten)
-    private lazy var buttonEleven = configuraButtonMark(text: firstStageMarkModel.textButton.eleven)
-    private lazy var buttonTwelve = configuraButtonMark(text: firstStageMarkModel.textButton.twelve)
-    private lazy var buttonThirteen = configuraButtonMark(text: firstStageMarkModel.textButton.thirteen)
-    private lazy var buttonFourteen = configuraButtonMark(text: firstStageMarkModel.textButton.fourteen)
-
-    private lazy var buttonToSecondStage: UIButton = {
-        var button = UIButton(type: .system)
-        button.setTitle("Перейти во 2 этап", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
-        button.setTitleColor(UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0), for: .normal)
-        button.backgroundColor = .white
-        button.layer.borderColor = UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0).cgColor
-        button.layer.borderWidth = 3
-        button.addTarget(self, action: #selector(tapButtonSecondStage), for: .touchUpInside)
-        button.layer.cornerRadius = 18
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    var toSecondStage: (() -> Void)?
+    private lazy var buttonOne = configuraButtonMark(text: thirdStageMarkModel.textButton.one)
+    private lazy var buttonTwo = configuraButtonMark(text: thirdStageMarkModel.textButton.two)
+    private lazy var buttonThree = configuraButtonMark(text: thirdStageMarkModel.textButton.three)
+    private lazy var buttonFour = configuraButtonMark(text: thirdStageMarkModel.textButton.four)
+    private lazy var buttonFive = configuraButtonMark(text: thirdStageMarkModel.textButton.five)
+    private lazy var buttonSix = configuraButtonMark(text: thirdStageMarkModel.textButton.six)
+    private lazy var buttonSeven = configuraButtonMark(text: thirdStageMarkModel.textButton.seven)
+    private lazy var buttonEight = configuraButtonMark(text: thirdStageMarkModel.textButton.eight)
+    private lazy var buttonNine = configuraButtonMark(text: thirdStageMarkModel.textButton.nine)
+    private lazy var buttonTen = configuraButtonMark(text: thirdStageMarkModel.textButton.ten)
+    private lazy var buttonEleven = configuraButtonMark(text: thirdStageMarkModel.textButton.eleven)
+    private lazy var buttonTwelve = configuraButtonMark(text: thirdStageMarkModel.textButton.twelve)
+    private lazy var buttonThirteen = configuraButtonMark(text: thirdStageMarkModel.textButton.thirteen)
+    private lazy var buttonFourteen = configuraButtonMark(text: thirdStageMarkModel.textButton.fourteen)
     
     // MARK: - Init
     
@@ -94,7 +78,6 @@ class FirstStageMarkView: UIView {
         stackViewThree.addArrangedSubview(buttonTwelve)
         stackViewFour.addArrangedSubview(buttonThirteen)
         stackViewFour.addArrangedSubview(buttonFourteen)
-        addSubview(buttonToSecondStage)
     }
     
     // MARK: - Layout
@@ -122,11 +105,6 @@ class FirstStageMarkView: UIView {
         stackViewFour.topAnchor.constraint(equalTo: stackViewThree.bottomAnchor, constant: 18),
         stackViewFour.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
         stackViewFour.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -200),
-        
-        buttonToSecondStage.centerXAnchor.constraint(equalTo: centerXAnchor),
-        buttonToSecondStage.topAnchor.constraint(equalTo: stackViewFour.bottomAnchor, constant: 40),
-        buttonToSecondStage.heightAnchor.constraint(equalToConstant: 55),
-        buttonToSecondStage.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1 / 1.1)
         ])
     }
     
@@ -156,8 +134,6 @@ class FirstStageMarkView: UIView {
         return stackView
     }
     
-    var toAwards: (() -> Void)?
-    
     // MARK: - Tap button mark
     
     @objc func tapButtonMark(button: UIButton) {
@@ -167,12 +143,5 @@ class FirstStageMarkView: UIView {
         button.layer.borderWidth = 3
         button.setImage(UIImage(systemName: "checkmark")?.withTintColor(UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0)).withRenderingMode(.alwaysOriginal), for: .normal)
         button.setTitle(nil, for: .normal)
-        toAwards?()
-    }
-    
-    // MARK: - Tap button to second stage
-    
-    @objc func tapButtonSecondStage() {
-        toSecondStage?()
     }
 }
