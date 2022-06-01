@@ -156,6 +156,8 @@ class FirstStageMarkView: UIView {
         return stackView
     }
     
+    var toAwards: (() -> Void)?
+    
     // MARK: - Tap button mark
     
     @objc func tapButtonMark(button: UIButton) {
@@ -165,6 +167,7 @@ class FirstStageMarkView: UIView {
         button.layer.borderWidth = 3
         button.setImage(UIImage(systemName: "checkmark")?.withTintColor(UIColor(red: 91/255.0, green: 182/255, blue: 185/255.0, alpha: 1.0)).withRenderingMode(.alwaysOriginal), for: .normal)
         button.setTitle(nil, for: .normal)
+        toAwards?()
     }
     
     // MARK: - Tap button to second stage

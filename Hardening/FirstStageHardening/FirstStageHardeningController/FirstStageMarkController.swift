@@ -10,6 +10,8 @@ import UIKit
 
 class FirstStageMarkController: UIViewController {
     
+    weak var delegate: AwardsDelegate?
+    
     private var firstStageMarkView: FirstStageMarkView? {
         guard isViewLoaded else { return nil }
         return view as? FirstStageMarkView
@@ -20,5 +22,13 @@ class FirstStageMarkController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = FirstStageMarkView()
+        firstStageMarkView?.toSecondStage = { [weak self] in
+            self?.coordinator?.openSecondStage()
+        }
+        
+        // Вот здесь засада - не работает - хотела при нажатии на кнопку чтобы изменилось кол-во снежинок в наградах
+        firstStageMarkView?.toAwards = {  [weak self] in
+            self?.delegate?.addAwards()
+        }
     }
 }
